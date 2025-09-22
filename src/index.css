@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+
+/* ✅ Custom Animations */
+@layer utilities {
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-6deg); }
+    50% { transform: rotate(6deg); }
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+  }
+  @keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes fade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  @keyframes spin-slow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .animate-wiggle { animation: wiggle 0.8s ease-in-out infinite; }
+  .animate-shake { animation: shake 0.5s ease-in-out infinite; }
+  .animate-jump { animation: jump 0.8s ease-in-out infinite; }
+  .animate-fade { animation: fade 1.5s ease-in-out infinite; }
+  .animate-spin-slow { animation: spin-slow 4s linear infinite; }
+  .animate-bounce-slow { animation: bounce-slow 1.5s infinite; }
+}
+
