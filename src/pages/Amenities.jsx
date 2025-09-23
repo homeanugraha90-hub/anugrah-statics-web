@@ -165,7 +165,7 @@ const Amenities = () => {
         </p>
         <a
           href="/contact"
-          className="bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition"
+          className="bg-orange-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-orange-400 transition"
         >
           Contact Us
         </a>

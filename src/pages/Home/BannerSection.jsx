@@ -28,7 +28,7 @@ export default function BannerSection() {
   }, [images.length]);
 
   return (
-    <section className="w-full bg-gray-50 pt-10">
+    <section className="w-full  bg-gray-50 pt-30 md:pt-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-8 px-6 py-12 md:py-20">
         
         {/* Left Content */}

@@ -20,7 +20,7 @@ const Price = () => {
   style={{
     backgroundImage: `url(${img1})`,
     backgroundSize: 'cover',
-    backgroundPosition: 'bottom',
+    backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
   }}
   className="relative  md:h-[400px]  lg:h-[500px] h-[300px]  "

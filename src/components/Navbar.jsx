@@ -76,7 +76,7 @@ const Navbar = () => {
           onClick={() => navigate("/")}
         >
           <img
-            src="/logo.png"
+            src="/logo-2.png"
             alt="Quarter Logo"
             className="h-20 w-auto object-contain"
           />

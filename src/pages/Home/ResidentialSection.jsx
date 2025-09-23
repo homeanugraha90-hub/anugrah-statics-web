@@ -41,19 +41,19 @@ export default function ResidentialSection() {
 
   return (
     <section className="relative py-20 px-6 md:px-12 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start relative z-10">
+      <div className="max-w-7xl  mx-auto grid md:grid-cols-2 gap-16 items-start relative z-10">
         {/* LEFT IMAGE */}
-        <div className="relative group w-full h-[400px] md:h-[550px]">
+        <div className="relative   group w-full h-[400px] md:h-[566px]">
           <img
             src={img1}
             alt="Anugrah Homes Residential Plots Development"
             className="rounded-3xl shadow-2xl w-full h-full object-cover transform transition duration-700 group-hover:scale-105"
           />
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-yellow-400/10 via-transparent to-yellow-500/10 pointer-events-none"></div>
+          
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="flex flex-col justify-start">
+        <div className="flex flex-col  justify-start">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-2 leading-snug">
             {staticData.content.title}
           </h2>

@@ -1,8 +1,15 @@
 import React from "react";
-
+import img from "../assets/gate-1.png"
 export default function PrivacyPolicy() {
   return (
-    <section className="min-h-screen bg-gray-50 py-16 px-6 md:px-20">
+    <section className="min-h-screen bg-gray-50 py-16  ">
+      <div className="relative bg-cover bg-center md:h-[400px] lg:h-[500px] h-[300px] flex items-center justify-center text-white" style={{ backgroundImage: `url(${img})` }}>
+        <div className="relative z-10 text-center text-white px-4 h-full w-full flex flex-col items-center justify-center bg-black/50">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
+          <p className="text-sm md:text-base"><span className="text-gray-300">Home</span> &gt; Privacy Policy</p>
+        </div>
+      </div>
+
       <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-12">
         
         {/* Heading */}

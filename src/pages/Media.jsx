@@ -100,10 +100,10 @@ const Media = () => {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-12 gap-8">
         {/* Blog Posts */}
-        <div className="lg:col-span-8 space-y-12">
+        <div className="lg:col-span-8 space-y-12  ">
           {currentPosts.map((post) => (
-            <div key={post.id} className="space-y-4">
-              <img src={post.image} alt={post.title} className="w-full h-auto rounded-xl object-cover" />
+            <div key={post.id} className="space-y-4 ">
+              <img src={post.image} alt={post.title} className="w-full md:h-[70vh] h-[30vh] rounded-xl object-cover" />
               <div className="text-sm text-gray-500">
                 Post By <span className="font-medium text-black">{post.author}</span> | {post.date}
               </div>
