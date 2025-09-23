@@ -142,7 +142,7 @@ const About = () => {
   >
    
   </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1  pt-4 md:grid-cols-2 gap-8">
           <div>
             <div className="flex items-center mb-4"><Crown className="w-6 h-6 text-black mr-2" /><h2 className="text-xl font-bold">{parsedDescription.title1}</h2></div>
             <p className="text-gray-600">{parsedDescription.content1}</p>
@@ -155,24 +155,54 @@ const About = () => {
       </section>
 
       {/* Milestones */}
-      <section className="bg-[#f9f9f9] py-20">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <h4 className="text-sm uppercase text-gray-400 font-semibold tracking-wide mb-2">Our History</h4>
-          <h2 className="text-3xl font-bold mb-12">Milestones That Define Us</h2>
-          <div className="relative">
-            <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 transform -translate-y-1/2"></div>
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 text-center relative z-10">
-              {milestones.map((item, index) => (
-                <div key={index} className="relative flex flex-col items-center justify-center">
-                  <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-[#33ef4f] border-4 border-white rounded-full shadow-md z-20"></div>
-                  <h4 className="text-lg uppercase text-gray-500 tracking-wide">{item.title}</h4>
-                  <p className="pt-8 md:pt-32 text-gray-600 text-sm">{item.description}</p>
-                </div>
-              ))}
-            </div>
+ {/* Milestones Section */}
+<section className="bg-[#f9f9f9] py-20 relative overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 text-center">
+    {/* Section Header */}
+    <h4 className="text-sm uppercase text-gray-400 font-semibold tracking-wide mb-2">
+      Our History
+    </h4>
+    <h2 className="text-3xl sm:text-4xl font-bold mb-5">
+      Milestones That Define Us
+    </h2>
+
+    {/* Timeline Line for desktop */}
+    <div className="hidden md:block  relative top-4 left-0 w-full h-1 bg-gray-200 z-0"></div>
+
+    {/* Milestones Grid */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 relative z-10">
+      {milestones.map((item, index) => (
+        <div
+          key={index}
+          className="relative flex flex-col items-center text-center group"
+        >
+          {/* Timeline Circle */}
+          <div className="w-8 h-8 md:w-6 md:h-6 bg-[#33ef4f] border-4 border-white rounded-full shadow-lg mb-4 md:mb-2 relative z-20 transition-transform duration-500 group-hover:scale-110"></div>
+
+          {/* Card with visible border and fixed height */}
+          <div className="relative w-full md:ax-w-[320px] max-w-[200px] p-4 flex flex-col justify-between h-[200px] bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
+            <h4 className="text-lg font-semibold uppercase text-orange-500 mb-2">
+              {item.title}
+            </h4>
+            <p className="text-gray-600 text-sm sm:text-base leading-snug">
+              {item.description}
+            </p>
+
+            {/* Hover Animated Left Border */}
+            <span className="absolute left-0 top-0 h-0 w-1 bg-orange-500 transition-all duration-500 group-hover:h-full"></span>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+
+  {/* Decorative Background Circles */}
+  <div className="absolute -top-20 -left-20 w-40 h-40 bg-orange-500/20 rounded-full blur-3xl pointer-events-none"></div>
+  <div className="absolute -bottom-24 -right-24 w-60 h-60 bg-orange-500/20 rounded-full blur-3xl pointer-events-none"></div>
+</section>
+
+
+
 
       {/* Homebuying Steps */}
       <section className="py-32">

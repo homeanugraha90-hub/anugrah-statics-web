@@ -13,9 +13,10 @@ const Navbar = () => {
 
   // Define different nav links based on page
   const navConfig = {
-    "/": ["Home", "About", "Why Jewar", "Media", "Price", "Contact Us"],
+    "/": ["Home", "About", "Why Jewar", "Amenities", "Media", "Price", "Contact Us"],
     "/about": ["Home", "About", "Why Jewar", "Media", "Price", "Contact Us"],
-    "/why-jewar": ["Home","Amenities", "Why Jewar", "Faq"],
+    "/why-jewar": ["Home", "Why Jewar", "Faq"],
+    "/amenities": ["Home", "Amenities", "Contact Us"],
     "/contact": ["Home", "Contact Us", "Privacy Policy"],
     "/media": ["Home", "Media", "Contact Us"],
     "/price": ["Home", "Price", "Contact Us"],

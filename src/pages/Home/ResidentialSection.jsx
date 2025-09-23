@@ -2,23 +2,18 @@ import { TreePine, Cloud, Trees, Building } from "lucide-react";
 import img1 from "../../assets/garden-3.jpg";
 
 export default function ResidentialSection() {
-  // Static data from backend response
   const staticData = {
     content: {
       title: "Residential Plots",
       title1: "Our Plot Developments",
-      discribe: "Always done keeping in mind the need of the user in terms of both living and capital appreciation.",
-      discribe1: "Are always done keeping in mind the need of the user in terms of both living and capital appreciation.",
+      discribe:
+        "Our developments are always done keeping in mind the need of the user in terms of both living and capital appreciation.",
       discribe2: "All our developments come with the following features:",
       option1: "Accuracy",
       option2: "On-time Possession",
       option3: "Excellence in Architecture",
       option4: "Well Located",
-      option5: "Nearby Attractions"
     },
-    images: [
-      "1758376423284-slide-001.jpeg"
-    ]
   };
 
   const features = [
@@ -45,48 +40,47 @@ export default function ResidentialSection() {
   ];
 
   return (
-    <section className="relative py-24 px-6 md:px-12 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white">
-      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
-        {/* Left Image */}
-        <div className="relative group">
+    <section className="relative py-20 px-6 md:px-12 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
+      <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start relative z-10">
+        {/* LEFT IMAGE */}
+        <div className="relative group w-full h-[400px] md:h-[550px]">
           <img
             src={img1}
             alt="Anugrah Homes Residential Plots Development"
-            className="rounded-3xl shadow-2xl w-full transform transition duration-700 group-hover:scale-105"
+            className="rounded-3xl shadow-2xl w-full h-full object-cover transform transition duration-700 group-hover:scale-105"
           />
-          {/* Decorative gradient overlay */}
           <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-yellow-400/10 via-transparent to-yellow-500/10 pointer-events-none"></div>
         </div>
 
-        {/* Right Content */}
-        <div>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+        {/* RIGHT CONTENT */}
+        <div className="flex flex-col justify-start">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-2 leading-snug">
             {staticData.content.title}
           </h2>
-          <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-orange-400">
+          <h3 className="text-2xl md:text-3xl font-semibold  text-orange-400 leading-snug">
             {staticData.content.title1}
           </h3>
-          <p className="mb-6 text-gray-300 leading-relaxed text-lg">
+          <p className="mb-4 text-gray-300 text-base leading-relaxed">
             {staticData.content.discribe}
           </p>
-          <p className="mb-8 text-gray-300 leading-relaxed">
+          <p className="mb-6 text-gray-300 text-base leading-relaxed">
             {staticData.content.discribe2}
           </p>
 
           {/* Feature Cards */}
-          <div className="grid sm:grid-cols-2 gap-6">
+          <div className="grid sm:grid-cols-2 gap-4">
             {features.map((f, i) => (
               <div
                 key={i}
-                className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 shadow-lg hover:shadow-yellow-400/30 hover:scale-[1.03] transition duration-500"
+                className="flex flex-col h-full justify-start relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-lg hover:shadow-yellow-400/30 hover:scale-[1.03] transition duration-500"
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 rounded-xl bg-orange-400/20 text-orange-400">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-2 rounded-xl bg-orange-400/20 text-orange-400 flex-shrink-0">
                     {f.icon}
                   </div>
-                  <h3 className="text-xl font-semibold">{f.title}</h3>
+                  <h3 className="text-lg font-semibold">{f.title}</h3>
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed">
+                <p className="text-gray-300 text-sm sm:text-base line-clamp-3 leading-snug">
                   {f.desc}
                 </p>
               </div>
@@ -95,9 +89,9 @@ export default function ResidentialSection() {
         </div>
       </div>
 
-      {/* Decorative Background Shapes */}
-      <div className="absolute top-0 left-0 w-72 h-72 bg-yellow-400/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl"></div>
+      {/* Decorative Shapes */}
+      <div className="absolute top-0 left-0 w-72 h-72 bg-yellow-400/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none"></div>
     </section>
   );
 }

@@ -126,31 +126,35 @@ const Amenities = () => {
         </div>
 
         {/* Amenities Grid */}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {amenities.map((amenity, index) => (
-            <div
-              key={index}
-              className="relative group bg-white border rounded-xl shadow p-6 flex flex-col items-center text-center transition overflow-hidden"
-            >
-              {/* Default Content */}
-              <div className="z-10 transition-opacity duration-300 group-hover:opacity-0">
-                {amenity.icon}
-                <h3 className="mt-4 text-xl font-semibold">{amenity.title}</h3>
-                <p className="mt-2 text-gray-600">{amenity.desc}</p>
-              </div>
-
-              {/* Hover Image */}
-              <img
-                src={amenity.img}
-                alt={amenity.title}
-                className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
-              />
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center text-white px-4">
-                <h3 className="text-lg md:text-xl font-semibold">{amenity.title}</h3>
-              </div>
-            </div>
-          ))}
+       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+  {amenities.map((amenity, index) => (
+    <div
+      key={index}
+      className="relative group bg-white border rounded-xl shadow p-6 flex flex-col items-center justify-center text-center transition overflow-hidden"
+    >
+      {/* Default Content */}
+      <div className="z-10 flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
+        {/* Centered Icon */}
+        <div className="flex items-center justify-center w-16 h-16 rounded-full bg-yellow-100 text-yellow-600 mb-4">
+          {amenity.icon}
         </div>
+        <h3 className="text-xl font-semibold">{amenity.title}</h3>
+        <p className="mt-2 text-gray-600">{amenity.desc}</p>
+      </div>
+
+      {/* Hover Image */}
+      <img
+        src={amenity.img}
+        alt={amenity.title}
+        className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition duration-500"
+      />
+      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex items-center justify-center text-white px-4">
+        <h3 className="text-lg md:text-xl font-semibold">{amenity.title}</h3>
+      </div>
+    </div>
+  ))}
+</div>
+
       </section>
 
       {/* Call to Action */}

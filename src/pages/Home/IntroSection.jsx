@@ -1,26 +1,25 @@
 import { useState } from "react";
-import img1 from "../../assets/park-12.jpeg"
-import img2 from "../../assets/park-9.jpeg"
+import img1 from "../../assets/park-12.jpeg";
+import img2 from "../../assets/park-9.jpeg";
 import { Home, User, Box } from "lucide-react";
 
 export default function IntroSection() {
   const [hovered, setHovered] = useState(false);
 
-  // Static data from backend response
+  // Static data
   const staticData = {
     content: {
       subtitle: "About Us",
       tittle: "Anugrah Homes",
       tittle2: "Plots on Yamuna Expressway",
-     
-      content1: "Anugrah Homes focuses on letting you detach from the world and reconnect with your spirit by creating a setting rich in peace and tranquility, surrounded by nature, while still offering all the amenities of luxury living.",
-      content2: "Anugrah Homes is the natural manifestation of a modern yet fashionably confident plot in the countryside",
-      content3: "We create customized adventures and discoveries for our visitors through bespoke cultural, culinary, wellness, architecture, lifestyle, and personalized service experiences."
+      content1:
+        "Anugrah Homes focuses on letting you detach from the world and reconnect with your spirit by creating a setting rich in peace and tranquility, surrounded by nature, while still offering all the amenities of luxury living.",
+      content2:
+        "Anugrah Homes is the natural manifestation of a modern yet fashionably confident plot in the countryside",
+      content3:
+        "We create customized adventures and discoveries for our visitors through bespoke cultural, culinary, wellness, architecture, lifestyle, and personalized service experiences.",
     },
-    images: [
-      img1,
-      img2
-    ]
+    images: [img1, img2],
   };
 
   return (
@@ -32,7 +31,7 @@ export default function IntroSection() {
         {/* LEFT SIDE - Overlapping Images */}
         <div
           className="relative flex justify-center md:justify-start group cursor-pointer 
-          w-full max-w-[500px] h-[40vh] sm:h-[50vh] md:h-[60vh] mx-auto"
+          w-full max-w-[500px] h-[40vh] sm:h-[60vh] md:h-[70vh] mx-auto"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
@@ -45,7 +44,7 @@ export default function IntroSection() {
             <img
               src={img1}
               alt="Anugrah Homes - Residential Plots"
-              className="w-full h-full object-cover sm:object-contain"
+              className="w-full h-full object-cover"
             />
           </div>
 
@@ -58,7 +57,7 @@ export default function IntroSection() {
             <img
               src={img2}
               alt="Anugrah Homes - Park View"
-              className="w-full h-full object-cover sm:object-contain"
+              className="w-full h-full object-cover"
             />
           </div>
         </div>
@@ -70,29 +69,30 @@ export default function IntroSection() {
           </p>
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-gray-900 leading-snug mb-4">
             {staticData.content.tittle}{" "}
-            <span className="text-orange-500">
-              {staticData.content.tittle2}
-            </span>
+            <span className="text-orange-500">{staticData.content.tittle2}</span>
           </h2>
-          <p className="text-gray-600 mb-8 text-sm sm:text-base">
-            {staticData.content.content}
-          </p>
 
           {/* Features List */}
           <div className="space-y-6">
             {[
               {
-                icon: <Home className="text-orange-500 w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0" />,
+                icon: (
+                  <Home className="text-orange-500 w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0" />
+                ),
                 title: "Premium Residential Plots",
                 desc: staticData.content.content1,
               },
               {
-                icon: <User className="text-orange-500 w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0" />,
+                icon: (
+                  <User className="text-orange-500 w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0" />
+                ),
                 title: "Modern Countryside Living",
                 desc: staticData.content.content2,
               },
               {
-                icon: <Box className="text-orange-500 w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0" />,
+                icon: (
+                  <Box className="text-orange-500 w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0" />
+                ),
                 title: "Bespoke Experiences",
                 desc: staticData.content.content3,
               },
@@ -109,7 +109,10 @@ export default function IntroSection() {
                   <h3 className="font-bold text-base sm:text-lg text-gray-900">
                     {item.title}
                   </h3>
-                  <p className="text-gray-600 text-sm sm:text-base">{item.desc}</p>
+                  {/* Limit text to 2 lines */}
+                  <p className="text-gray-600 text-sm sm:text-base line-clamp-2">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}

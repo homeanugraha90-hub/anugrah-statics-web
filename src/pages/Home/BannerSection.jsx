@@ -6,7 +6,7 @@ import img3 from "../../assets/park-13.jpg";
 import img4 from "../../assets/const-3.jpg"
 import img5 from "../../assets/park-15.png"
 export default function BannerSection() {
-  // ✅ Static images (put your images inside "public/images/")
+  //  Static images (put your images inside "public/images/")
   const images = [
     img1,
     img2,

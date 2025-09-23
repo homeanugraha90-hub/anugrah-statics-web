@@ -152,15 +152,7 @@ const Price = () => {
 
 
 
-      {/* Logo Grid */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-center gap-8">
-          {["Findr", "INTDECO", "Innovation", "Anvoug", "Modave", "Vanfaba"].map((brand, index) => (
-            <div key={index} className="text-gray-400 text-xl font-bold">{brand}</div>
-          ))}
-        </div>
-      </section>
-
+      
 
 
       {/* Contact + FAQ */}
