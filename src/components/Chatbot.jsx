@@ -19,7 +19,7 @@ export default function Chatbot() {
           visible on screens < lg (lg:hidden)
          ------------------------ */}
       <div className="fixed bottom-0 left-0 w-full z-50 lg:hidden">
-        <div className="flex w-full max-w-[1400px] mx-auto">
+        <div className="flex w-full max-w-[1400px] mx-auto ">
           {/* Call button - left half */}
           <a
             href={`tel:${phoneNumber}`}
@@ -64,7 +64,7 @@ export default function Chatbot() {
     {!isOpen && (
       <button
         onClick={() => setIsOpen(true)}
-        className="bg-orange-600 text-white p-3 rounded-full shadow-xl hover:scale-105 transition-transform"
+        className="bg-orange-600 text-white p-4 rounded-full shadow-xl hover:scale-105 transition-transform"
         aria-label="Open chat"
       >
         <MessageCircle size={22} />

@@ -27,6 +27,7 @@ import SmoothScroll from './components/SmoothScroll'
 import PrivacyPolicy from './pages/PrivacyPlolicy'
 import FloatingButton from './components/FloatingButton'
 import FloatingBrochure from './components/FloatingBrochure'
+import PopupForm from './components/PopupForm'
 
 function Layout({ children }) {
   const location = useLocation();
@@ -50,7 +51,9 @@ function App() {
       <SmoothScroll/>
       <FloatingButton />
       <Layout>
+        <PopupForm/>
         <Routes>
+          
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
