@@ -101,13 +101,13 @@ const Amenities = () => {
     <div className="font-sans">
       {/* Hero Section */}
       <section
-        className="relative bg-cover pt-10 bg-center md:h-[400px] lg:h-[500px] h-[300px] flex items-center justify-center text-white"
+        className="relative bg-cover pt-20 bg-center md:h-[400px] lg:h-[500px] h-[300px] flex items-center justify-center text-white"
         style={{ backgroundImage: `url(${heroImg})` }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 text-center px-4">
+        <div className="relative z-10 text-center px-4" >
           <h1 className="text-2xl md:text-5xl font-bold">Luxurious Amenities</h1>
-          <p className="mt-4 text-sm md:text-lg max-w-3xl mx-auto">
+          <p className="md:mt-4 text-sm md:text-lg max-w-3xl mx-auto">
             Experience unmatched comfort, convenience, and lifestyle benefits in one place.
           </p>
         </div>

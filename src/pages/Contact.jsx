@@ -90,9 +90,9 @@ const Contact = () => {
       <div className="absolute inset-0 bg-opacity-60 bg-black/50"></div>
 
       {/* Text Content */}
-      <div className="relative z-10 flex flex-col pt-10 items-center justify-center h-full text-center text-white px-4">
+      <div className="relative z-10 flex flex-col pt-20 items-center justify-center h-full text-center text-white px-4">
         <h1 className="text-3xl md:text-5xl font-bold">Contact Us</h1>
-        <div className="mt-4 flex items-center space-x-2 text-sm md:text-base">
+        <div className="md:mt-4 flex items-center space-x-2 text-sm md:text-base">
           <Link to="/" className="hover:underline">Home</Link>
           <span>›</span>
           <span className="text-gray-300">Contact Us</span>
@@ -110,10 +110,10 @@ const Contact = () => {
 
 
 
-      <div className="max-w-6xl py-10 px-4 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center ">
+      <div className="max-w-6xl py-10 px-4 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center  ">
         {/* Contact Form */}
         <div>
-          <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
+          <h2 className="text-2xl font-semibold mb-6 flex justify-center md:justify-start">Get in Touch</h2>
           <form ref={form} onSubmit={sendEmail} className="space-y-4">
             <input
               type="text"
@@ -169,14 +169,17 @@ const Contact = () => {
               required
               className="w-full border px-4 py-2 rounded"
             ></textarea>
+<div className="flex   justify-center md:justify-start">
+
 
             <button
               type="submit"
-              className="px-14 py-3 bg-orange-600 text-white rounded hover:bg-orange-700"
+              className=" px-40 md:px-14 py-3 bg-orange-600 text-white rounded hover:bg-orange-700"
               disabled={loading}
-            >
+              >
               {loading ? "Sending..." : "Submit"}
             </button>
+              </div>
 
             {success && (
               <p className="text-orange-600 font-medium pt-2">

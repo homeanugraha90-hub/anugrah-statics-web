@@ -3,7 +3,7 @@ import React from 'react';
 export default function Footer() {
   return (
     <div>
-      <footer className="bg-[#1d1e22] text-white text-center py-2 px-4">
+      <footer className="bg-[#1d1e22] text-white text-center pb-20 py-10  md:py-2 px-4">
         {/* Copyright */}
         <p className="text-xs mb-2">
           Copyright © 2025 <span className="font-semibold">Anugrah Homes</span>

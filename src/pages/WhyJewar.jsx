@@ -90,7 +90,7 @@ const WhyJewar = () => {
     <div className="font-sans">
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center md:h-[450px] pt-10 lg:h-[550px] h-[300px] flex items-center justify-center text-white"
+        className="relative bg-cover bg-center md:h-[450px] pt-20 lg:h-[550px] h-[300px] flex items-center justify-center text-white"
         style={{ backgroundImage: `url(${imgGate})` }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
@@ -227,7 +227,7 @@ const WhyJewar = () => {
                   <>
                     {/* Road Background */}
                     <motion.div
-                      className="absolute inset-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500"
+                      className="absolute   inset-0 opacity-0 group-hover:opacity-90 transition-opacity duration-500"
                       style={{
                         background: "linear-gradient(to bottom, rgba(255,220,150,0.6), rgba(255,190,80,0.5), rgba(255,165,0,0.4))",
                       }}
@@ -235,7 +235,7 @@ const WhyJewar = () => {
 
                     {/* Moving Road Line */}
                     <motion.div
-                      className="absolute top-1/2 left-0 w-full h-1 opacity-0 group-hover:opacity-100"
+                      className="absolute  top-20  left-0 w-full h-1 opacity-0 group-hover:opacity-100"
                       style={{
                         background: "linear-gradient(90deg, rgba(255,180,70,1), rgba(255,140,0,0.9))",
                         boxShadow: "0px 0px 12px rgba(255,165,0,0.8)",
@@ -254,7 +254,7 @@ const WhyJewar = () => {
                     {[...Array(5)].map((_, idx) => (
                       <motion.div
                         key={idx}
-                        className="absolute top-1/2 w-10 h-1 opacity-0 group-hover:opacity-90 rounded"
+                        className="absolute  top-20 w-10 h-1 opacity-0 group-hover:opacity-90 rounded"
                         style={{
                           left: `${idx * 25}%`,
                           background: "linear-gradient(90deg, rgba(255,220,120,1), rgba(255,170,60,0.9))",
@@ -466,13 +466,13 @@ const WhyJewar = () => {
                 )}
 
                 {/* Icon - Static (No Animation) */}
-                <div className="flex justify-center mb-6 relative z-20 h-16">
+                <div className="flex justify-center  relative z-20 h-16">
                   <div className="relative">
                     {feature.icon}
                   </div>
                 </div>
 
-                <h3 className="text-xl font-bold mb-3 relative z-20 group-hover:text-black transition-colors duration-500">
+                <h3 className="text-xl pt-6 font-bold mb-3 relative z-20 group-hover:text-black transition-colors duration-500">
                   {feature.title}
                 </h3>
                 <p className="text-gray-600 text-sm relative z-20 group-hover:text-gray-800 transition-colors duration-500">
@@ -481,7 +481,7 @@ const WhyJewar = () => {
 
                 {/* Card Glow Effect */}
                 <motion.div
-                  className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  className="absolute inset-0  rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     background: "linear-gradient(45deg, rgba(255,215,0,0.1), rgba(255,215,0,0.2), rgba(255,215,0,0.1))",
                     filter: "blur(1px)"
@@ -510,11 +510,15 @@ const WhyJewar = () => {
             Anugrah Homes sets a new benchmark for countryside living with comfort and elegance.
           </p>
 
-          <Link to="/amenities">
-            <button className="mt-4 px-6 py-3 rounded-xl bg-orange-500 text-white font-semibold shadow-lg hover:bg-orange-600 transition-all duration-300">
-              Explore More
-            </button>
-          </Link>
+          <div className="flex justify-center md:justify-start">
+            <Link to="/amenities">
+              <button className="mt-4 px-6 py-3 rounded-xl bg-orange-500 text-white font-semibold shadow-lg hover:bg-orange-600 transition-all duration-300 ">
+                Explore More
+              </button>
+            </Link>
+          </div>
+
+
         </div>
 
         <div className="relative group">

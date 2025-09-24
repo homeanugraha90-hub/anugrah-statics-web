@@ -121,11 +121,11 @@ const SiteVisit = () => {
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative pt-10 z-10 text-center px-4">
+        <div className="relative pt-20 z-10 text-center px-4">
           <h1 className="text-2xl md:text-5xl font-bold">
             Schedule Your Site Visit
           </h1>
-          <p className="mt-4 max-w-2xl mx-auto text:sm md:text-lg">
+          <p className="md:mt-4 max-w-2xl mx-auto text:sm md:text-lg">
             Experience the location, explore the amenities, and see your dream
             plot in person.
           </p>
@@ -135,7 +135,7 @@ const SiteVisit = () => {
       {/* Booking Form */}
       <section id="site-visit-form" className="bg-gray-50 py-16">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+          <h2 className="text-3xl md:text-3xl font-bold text-center ">
             Book Your Site Visit
           </h2>
           <form

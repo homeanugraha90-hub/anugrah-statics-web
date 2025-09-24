@@ -57,9 +57,9 @@ const Faq = () => {
         style={{ backgroundImage: `url(${heroImg})` }}
       >
         <div className=" absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 text-center px-4  pt-10">
+        <div className="relative z-10 text-center px-4  pt-20">
           <h1 className="text-2xl md:text-5xl font-bold">FAQ – Invest in Jewar</h1>
-          <p className="mt-3 text-sm md:text-lg max-w-3xl mx-auto">
+          <p className="md:mt-3 text-sm md:text-lg max-w-3xl mx-auto">
             Everything you need to know about investing in Jewar and Anugrah Homes.
           </p>
         </div>

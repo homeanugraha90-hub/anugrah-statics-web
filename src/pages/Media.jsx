@@ -89,10 +89,10 @@ const Media = () => {
         }}
         className="relative  md:h-[400px] lg:h-[500px] h-[300px] flex items-end justify-center text-white"
       >
-        <div className="bg-black/40 absolute inset-0 flex items-center justify-center pt-10">
+        <div className="bg-black/40 absolute inset-0 flex items-center justify-center pt-20">
           <div className="max-w-7xl mx-auto px-4 text-center text-white">
             <h1 className="text-2xl md:text-5xl font-bold">Latest News</h1>
-            <p className="text-sm mt-4">Home &gt; Media</p>
+            <p className="text-sm md:mt-4">Home &gt; Media</p>
           </div>
         </div>
       </section>
