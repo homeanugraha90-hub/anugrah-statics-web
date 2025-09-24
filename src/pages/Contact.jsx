@@ -90,7 +90,7 @@ const Contact = () => {
       <div className="absolute inset-0 bg-opacity-60 bg-black/50"></div>
 
       {/* Text Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+      <div className="relative z-10 flex flex-col pt-10 items-center justify-center h-full text-center text-white px-4">
         <h1 className="text-3xl md:text-5xl font-bold">Contact Us</h1>
         <div className="mt-4 flex items-center space-x-2 text-sm md:text-base">
           <Link to="/" className="hover:underline">Home</Link>

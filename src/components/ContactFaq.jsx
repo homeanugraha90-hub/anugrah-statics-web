@@ -65,7 +65,7 @@ const toggleFAQ = (index) => {
         <div>
           <p className="text-sm font-semibold text-gray-400 mb-2">FAQs</p>
           <h2 className="md:text-3xl text-2xl font-bold mb-6 leading-tight">
-            Ask Us Anything About <br /> Home Buying & Selling
+          Your Home Guide
           </h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (

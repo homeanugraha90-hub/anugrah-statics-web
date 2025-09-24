@@ -25,7 +25,7 @@ const Price = () => {
   }}
   className="relative  md:h-[400px]  lg:h-[500px] h-[300px]  "
 >
-  <div className=" bg-opacity-50 text-center bg-black/50 h-full py-20">
+  <div className=" bg-opacity-50 flex justify-center items-center pt-10 bg-black/50 h-full ">
     <div className="max-w-7xl mx-auto px-4 py-16 text-center text-white">
       <h1 className="text-2xl md:text-5xl font-bold mt-2">Pricing Plans</h1>
       <p className="text-sm mt-4">Home &gt;  Price</p>

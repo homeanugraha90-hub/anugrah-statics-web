@@ -53,11 +53,11 @@ const Faq = () => {
     <div className="font-sans">
       {/* Hero Section */}
       <section
-        className="relative bg-cover bg-center md:h-[400px] lg:h-[500px] h-[300px] flex items-center justify-center text-white"
+        className="relative bg-cover bg-center md:h-[400px] lg:h-[500px] h-[300px] flex items-center justify-center  text-white"
         style={{ backgroundImage: `url(${heroImg})` }}
       >
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 text-center px-4">
+        <div className=" absolute inset-0 bg-black/50"></div>
+        <div className="relative z-10 text-center px-4  pt-10">
           <h1 className="text-2xl md:text-5xl font-bold">FAQ – Invest in Jewar</h1>
           <p className="mt-3 text-sm md:text-lg max-w-3xl mx-auto">
             Everything you need to know about investing in Jewar and Anugrah Homes.
@@ -106,7 +106,7 @@ const Faq = () => {
         </p>
         <a
           href="/contact"
-          className="bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition"
+          className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-oreange-400 transition"
         >
           Contact Us
         </a>

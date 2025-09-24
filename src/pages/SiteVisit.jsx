@@ -121,7 +121,7 @@ const SiteVisit = () => {
         }}
       >
         <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative z-10 text-center px-4">
+        <div className="relative pt-10 z-10 text-center px-4">
           <h1 className="text-2xl md:text-5xl font-bold">
             Schedule Your Site Visit
           </h1>
@@ -224,7 +224,7 @@ const SiteVisit = () => {
 
             <button
               type="submit"
-              className="bg-black text-white py-3 rounded-lg md:col-span-2 hover:bg-gray-800 transition"
+              className="bg-orange-600 text-white py-3 rounded-lg md:col-span-2 hover:bg-orange-500 transition"
               disabled={loading}
             >
               {loading ? "Sending..." : "Schedule Visit"}

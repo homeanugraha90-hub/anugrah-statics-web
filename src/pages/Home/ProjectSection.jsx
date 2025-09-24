@@ -3,15 +3,15 @@
 import { useNavigate } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { Heart, Briefcase, User, Globe, Map, Building } from "lucide-react";
+import { useState } from "react";
 
 export default function ProjectSection() {
   const navigate = useNavigate();
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  
   const featureData = [
     {
       icon: <Heart className="text-orange-600 w-8 h-8 mb-2" />,
@@ -37,6 +37,11 @@ export default function ProjectSection() {
       icon: <Map className="text-orange-600 w-8 h-8 mb-2" />,
       title: "Nearby Landmarks",
       text: "Close to Schools/Colleges, Hospitals, ICC Cricket Stadium, Formula One Track, and Night Safari Park."
+    },
+    {
+      icon: <Building className="text-orange-600 w-8 h-8 mb-2" />,
+      title: "Prime Location",
+      text: "Close to Schools, Colleges, Hospitals, ICC Stadium, Formula 1 Track & more."
     }
   ];
 
@@ -44,95 +49,104 @@ export default function ProjectSection() {
     <section className="py-16 px-4 md:px-12 max-w-7xl mx-auto text-center">
       {/* Section Title */}
       <p className="inline-block px-4 py-1 mb-3 text-sm rounded-full bg-orange-100 text-orange-500 font-medium">
-        { "Our Services"}
+        Our Services
       </p>
       <h2 className="text-2xl md:text-4xl font-bold mb-12 text-gray-900">
-        { "Our Main Focus"}
+        Our Main Focus
       </h2>
 
-     
-      <Swiper
-        effect={"coverflow"}
-        grabCursor={true}
-        loop={true}
-        autoplay={{
-          delay: 2500,
-          disableOnInteraction: false,
-        }}
-        slidesPerView={1}
-        spaceBetween={30}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 120,
-          modifier: 2,
-          slideShadows: false,
-        }}
-        pagination={{ clickable: true }}
-        breakpoints={{
-          640: { slidesPerView: 1 },
-          768: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
-        }}
-        modules={[EffectCoverflow, Pagination, Autoplay]}
-        className="w-full"
-      >
-        {featureData.map((item, i) => (
-          <SwiperSlide key={i}>
-            <div className="bg-white h-72 sm:h-80 flex flex-col justify-between items-center text-center p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-b-4 border-orange-400">
-              {/* Icon with splash background */}
-              <div className="w-20 h-20 flex items-center justify-center mb-4 relative">
-                <div className="absolute inset-0 bg-orange-100 rounded-full opacity-70 blur-md"></div>
-                <div className="relative text-orange-500 text-4xl">
-                  {item.icon}
+      <div className="relative">
+        <Swiper
+          grabCursor={true}
+          loop={true}
+          centeredSlides={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          slidesPerView={3}
+          spaceBetween={30}
+          pagination={{ 
+            clickable: true,
+            dynamicBullets: true
+          }}
+          breakpoints={{
+            320: { slidesPerView: 1, spaceBetween: 20 },
+            640: { slidesPerView: 1, spaceBetween: 20 },
+            768: { slidesPerView: 2, spaceBetween: 25 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
+          }}
+          onSlideChange={(swiper) => {
+            setActiveIndex(swiper.realIndex);
+          }}
+          modules={[Pagination, Autoplay]}
+          className="w-full pb-12"
+        >
+          {featureData.map((item, i) => (
+            <SwiperSlide key={i}>
+              {({ isActive }) => (
+                <div 
+                  className={`bg-white flex flex-col justify-between items-center text-center p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 border-b-4 border-orange-400 transform ${
+                    isActive 
+                      ? 'scale-110 h-80 sm:h-96 shadow-2xl bg-gradient-to-br from-white to-orange-50 border-orange-500' 
+                      : 'scale-95 h-72 sm:h-80 opacity-80'
+                  }`}
+                >
+                  {/* Icon with splash background */}
+                  <div className={`flex items-center justify-center mb-4 relative transition-all duration-500 ${
+                    isActive ? 'w-24 h-24' : 'w-20 h-20'
+                  }`}>
+                    <div className={`absolute inset-0 bg-orange-100 rounded-full opacity-70 blur-md transition-all duration-500 ${
+                      isActive ? 'bg-orange-200 scale-110' : ''
+                    }`}></div>
+                    <div className={`relative text-orange-500 transition-all duration-500 ${
+                      isActive ? 'text-5xl text-orange-600' : 'text-4xl'
+                    }`}>
+                      {item.icon}
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className={`font-bold text-gray-900 mb-2 transition-all duration-500 ${
+                    isActive 
+                      ? 'text-xl md:text-2xl text-orange-700' 
+                      : 'text-lg md:text-xl'
+                  }`}>
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className={`text-gray-500 mb-4 flex-grow transition-all duration-500 ${
+                    isActive 
+                      ? 'text-base md:text-lg text-gray-600' 
+                      : 'text-sm md:text-base'
+                  }`}>
+                    {item.text}
+                  </p>
+
+                  {/* CTA */}
+                  <a
+                    href="#"
+                    className={`font-medium hover:underline mt-auto transition-all duration-500 ${
+                      isActive 
+                        ? 'text-orange-600 text-lg font-semibold transform hover:scale-105' 
+                        : 'text-orange-500'
+                    }`}
+                  >
+                    Find A Home →
+                  </a>
                 </div>
-              </div>
-
-              {/* Title */}
-              <h3 className="font-bold text-lg md:text-xl text-gray-900 mb-2">
-                {item.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-500 text-sm md:text-base mb-4">
-                {item.text}
-              </p>
-
-              {/* CTA */}
-              <a
-                href="#"
-                className="text-orange-500 font-medium hover:underline"
-              >
-                Find A Home →
-              </a>
-            </div>
-          </SwiperSlide>
-        ))}
-
-        {/* Extra custom card */}
-        <SwiperSlide>
-          <div className="bg-white h-72 sm:h-80 flex flex-col justify-between items-center text-center p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border-b-4 border-orange-400">
-            <div className="w-20 h-20 flex items-center justify-center mb-4 relative">
-              <div className="absolute inset-0 bg-orange-100 rounded-full opacity-70 blur-md"></div>
-              <Building className="relative text-orange-500 w-10 h-10" />
-            </div>
-            <h3 className="font-bold text-lg md:text-xl text-gray-900 mb-2">
-              Prime Location
-            </h3>
-            <p className="text-gray-500 text-sm md:text-base mb-4">
-              Close to Schools, Colleges, Hospitals, ICC Stadium, Formula 1 Track & more.
-            </p>
-            <a href="#" className="text-orange-500 font-medium hover:underline">
-              Find A Home →
-            </a>
-          </div>
-        </SwiperSlide>
-      </Swiper>
+              )}
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
 
       {/* CTA Button */}
       <button
         onClick={() => navigate("/site-visit")}
-        className="mt-12 bg-orange-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-orange-600 transition text-sm sm:text-base md:text-lg"
+        className="mt-8 bg-orange-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-orange-600 transition text-sm sm:text-base md:text-lg"
       >
         Schedule Your Visit
       </button>

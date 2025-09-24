@@ -120,9 +120,9 @@ const About = () => {
   return (
     <div>
       {/* Hero */}
-      <div className="relative bg-cover bg-center md:h-[400px] lg:h-[500px] h-[300px] flex items-center justify-center text-white" style={{ backgroundImage: `url(${firstSection.Images[0]})` }}>
+      <div className="relative bg-cover  bg-center md:h-[400px] lg:h-[500px] h-[300px] flex items-center pt-10  justify-center text-white" style={{ backgroundImage: `url(${firstSection.Images[0]})` }}>
         <div className="relative z-10 text-center text-white px-4 h-full w-full flex flex-col items-center justify-center bg-black/50">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">About Us</h1>
+          <h1 className="text-2xl md:text-5xl font-bold mb-4">About Us</h1>
           <p className="text-sm md:text-base"><span className="text-gray-300">Home</span> &gt; About Us</p>
         </div>
       </div>

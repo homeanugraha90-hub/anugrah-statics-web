@@ -11,7 +11,6 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // Define different nav links based on page
   const navConfig = {
     "/": ["Home", "About", "Why Jewar", "Amenities", "Media", "Price", "Contact Us"],
     "/about": ["Home", "About", "Why Jewar", "Media", "Price", "Contact Us"],
@@ -34,24 +33,12 @@ const Navbar = () => {
     "Privacy Policy": { path: "/privacy-policy" },
   };
 
-  // Pick links based on current path
-  const activeLinks =
-    navConfig[location.pathname] || ["Home", "About", "Contact Us"];
+  const activeLinks = navConfig[location.pathname] || ["Home", "About", "Contact Us"];
 
-  // Handle scroll effect
   useEffect(() => {
     const controlNavbar = () => {
-      if (window.scrollY <= 0) {
-        setAtTop(true);
-      } else {
-        setAtTop(false);
-      }
-
-      if (window.scrollY > lastScrollY) {
-        setShow(false);
-      } else {
-        setShow(true);
-      }
+      setAtTop(window.scrollY <= 0);
+      setShow(window.scrollY <= lastScrollY);
       setLastScrollY(window.scrollY);
     };
 
@@ -69,21 +56,21 @@ const Navbar = () => {
         show ? "translate-y-0" : "-translate-y-full"
       } ${atTop ? "bg-white" : "bg-white shadow-md"}`}
     >
-      <div className="w-screen md:px-16 px-10 py-2 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto flex items-center justify-between px-4 sm:px-8 md:px-10 lg:px-16 xl:px-24 py-3">
         {/* Logo */}
         <div
-          className="flex items-center cursor-pointer"
+          className="flex items-center cursor-pointer flex-shrink-0"
           onClick={() => navigate("/")}
         >
           <img
             src="/logo-2.png"
             alt="Quarter Logo"
-            className="h-20 w-auto object-contain"
+            className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain"
           />
         </div>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        {/* Desktop Nav (show only from lg) */}
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-10">
           {activeLinks.map((name, index) => {
             const link = allLinks[name];
             const isActive = location.pathname === link.path;
@@ -93,7 +80,7 @@ const Navbar = () => {
                 key={index}
                 to={link.path}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className={`text-xl font-stretch-extra-expanded transition ${
+                className={`text-base lg:text-lg xl:text-xl font-medium transition ${
                   isActive
                     ? "text-orange-500"
                     : "text-gray-800 hover:text-orange-500"
@@ -104,20 +91,20 @@ const Navbar = () => {
             );
           })}
 
-          {/* Add Listing Button */}
+          {/* Site Visit Button */}
           <button
             onClick={() => navigate("/site-visit")}
-            className="ml-4 bg-orange-500 text-white font-medium 
-            px-7 py-3 rounded-sm hover:bg-orange-600 transition"
+            className="ml-2 lg:ml-4 bg-orange-500 text-white font-medium 
+              px-4 lg:px-6 xl:px-8 py-2 lg:py-3 rounded hover:bg-orange-600 transition text-sm lg:text-base"
           >
             Site Visit
           </button>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle (show until lg) */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-gray-800 flex-shrink-0"
+          className="lg:hidden text-gray-800"
         >
           {open ? <X size={28} /> : <Menu size={28} />}
         </button>
@@ -125,7 +112,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute w-full bg-white border-t transition-all duration-300 ease-in-out ${
+        className={`lg:hidden absolute w-full bg-white border-t transition-all duration-300 ease-in-out ${
           open
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-5 pointer-events-none"
@@ -139,7 +126,7 @@ const Navbar = () => {
                 key={index}
                 to={link.path}
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className="block text-gray-800 font-stretch-extra-expanded text-lg hover:text-orange-500 transition"
+                className="block text-gray-800 font-medium text-lg hover:text-orange-500 transition"
               >
                 {name}
               </Link>
@@ -148,7 +135,7 @@ const Navbar = () => {
 
           <button
             onClick={() => navigate("/site-visit")}
-            className="w-full bg-orange-500 text-white font-medium px-5 py-3 rounded-sm hover:bg-orange-600 transition"
+            className="w-full bg-orange-500 text-white font-medium px-5 py-3 rounded hover:bg-orange-600 transition"
           >
             Site Visit
           </button>
