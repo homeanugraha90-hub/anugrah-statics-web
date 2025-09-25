@@ -1,187 +1,275 @@
-import React, { useEffect, useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
+import { useState } from "react";
+import emailjs from "emailjs-com";
+import Navbar from "../components/Navbar";
+import img1 from "../assets/gate-1.png";
+import { Link } from "react-router-dom";
+import {
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+  FaPinterestP,
+  FaYoutube,
+} from "react-icons/fa";
 
-// --- CONFIG: replace these with your EmailJS values ---
-const EMAILJS_SERVICE_ID = "service_d7iarfv";
-const EMAILJS_TEMPLATE_ID = "template_zzgorrr";
-const EMAILJS_PUBLIC_KEY = "cD8XBmJIzmsXY6T3j";
-// ------------------------------------------------------
-
-export default function PopupForm() {
-  const [visible, setVisible] = useState(false);
+const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
-  const formRef = useRef();
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
 
-  const [form, setForm] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-
-  useEffect(() => {
-    const shown = localStorage.getItem("popupFormShown");
-    if (!shown) {
-      const t = setTimeout(() => setVisible(true), 800);
-      return () => clearTimeout(t);
-    }
-  }, []);
-
-  const close = (remember = true) => {
-    setVisible(false);
-    if (remember) localStorage.setItem("popupFormShown", "1");
-  };
-
-  const onChange = (e) => {
-    const { name, value } = e.target;
-    setForm((s) => ({ ...s, [name]: value }));
-  };
-
-  const validate = () => {
-    if (!form.name.trim()) return "Name required";
-    if (!form.phone.trim()) return "Phone required";
-    if (!form.email.trim()) return "Email required";
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email)) return "Invalid email";
-    if (!form.subject.trim()) return "Subject required";
-    if (!form.message.trim()) return "Message required";
-    return "";
-  };
-
-  const onSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    setError("");
-    const v = validate();
-    if (v) return setError(v);
-
     setLoading(true);
 
-    const userdate = new Date().toLocaleDateString();
-    const usertime = new Date().toLocaleTimeString();
+    const date = new Date();
+    const userdate = date.toLocaleDateString();
+    const usertime = date.toLocaleTimeString();
 
     const formData = {
       from_name: "Anugrah Homes",
       web_name: "Anugrah Homes",
-      message: `\n        Name: ${form.name}\n        Phone: ${form.phone}\n        Email: ${form.email}\n        Subject: ${form.subject}\n        Message: ${form.message}\n        Date: ${userdate}\n        Time: ${usertime}`,
+      message: `
+        Name: ${name}
+        Phone: ${phone}
+        Email: ${email} 
+        Subject: ${subject}
+        Message: ${message}
+        Date: ${userdate}
+        Time: ${usertime}
+      `,
     };
 
     emailjs
       .send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
+        "service_d7iarfv", // Your EmailJS Service ID
+        "template_zzgorrr", // Your EmailJS Template ID
         formData,
-        EMAILJS_PUBLIC_KEY
+        "cD8XBmJIzmsXY6T3j" // Your Public Key
       )
       .then(
         () => {
           setLoading(false);
           setSuccess(true);
-          formRef.current?.reset();
-          localStorage.setItem("popupFormShown", "1");
-          setTimeout(() => {
-            setSuccess(false);
-            setVisible(false);
-          }, 2000);
+
+          // ✅ Reset form fields
+          setName("");
+          setPhone("");
+          setEmail("");
+          setSubject("");
+          setMessage("");
+
+          setTimeout(() => setSuccess(false), 4000);
         },
-        (err) => {
+        (error) => {
           setLoading(false);
-          console.error("FAILED...", err);
-          setError("Failed to send message. Please try again later.");
+          console.error("FAILED...", error);
+          alert("Failed to send message. Please try again later.");
         }
       );
   };
 
-  if (!visible) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div
-        className="absolute inset-0 bg-black/50"
-        onClick={() => close(true)}
-      />
+    <section className="bg-gray-50 w-full">
+      <Navbar />
 
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 p-6">
-        <button
-          className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
-          onClick={() => close(true)}
-        >
-          ✕
-        </button>
-
-        <h3 className="text-xl font-semibold mb-2">Anugrah Homes</h3>
-
-        {success ? (
-          <div className="p-4 rounded bg-green-50 text-green-700">
-            ✅ Thanks! We received your message.
+      {/* Banner Section */}
+      <div className="relative w-full h-64 md:h-80 lg:h-[500px]">
+        <img
+          src={img1}
+          alt="Contact Banner"
+          className="absolute inset-0 w-full h-full object-bottom"
+        />
+        <div className="absolute inset-0 bg-opacity-60 bg-black/50"></div>
+        <div className="relative z-10 flex flex-col pt-20 items-center justify-center h-full text-center text-white px-4">
+          <h1 className="text-3xl md:text-5xl font-bold">Contact Us</h1>
+          <div className="md:mt-4 flex items-center space-x-2 text-sm md:text-base">
+            <Link to="/" className="hover:underline">
+              Home
+            </Link>
+            <span>›</span>
+            <span className="text-gray-300">Contact Us</span>
           </div>
-        ) : (
-          <form ref={formRef} onSubmit={onSubmit} className="space-y-3">
+        </div>
+      </div>
+
+      <div className="max-w-6xl py-10 px-4 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        {/* Contact Form */}
+        <div>
+          <h2 className="text-2xl font-semibold mb-6 flex justify-center md:justify-start">
+            Get in Touch
+          </h2>
+          <form onSubmit={sendEmail} className="space-y-4">
             <input
-              name="name"
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               placeholder="Name"
-              value={form.name}
-              onChange={onChange}
-              className="w-full border px-3 py-2 rounded-md"
               required
+              className="w-full border px-4 py-2 rounded"
             />
+
             <input
-              name="phone"
-              placeholder="Phone"
-              value={form.phone}
-              onChange={onChange}
-              className="w-full border px-3 py-2 rounded-md"
+              type="text"
+              value={phone}
+              onChange={(e) => {
+                const value = e.target.value;
+                if (/^[0-9]*$/.test(value)) {
+                  setPhone(value);
+                }
+              }}
+              maxLength={13}
+              placeholder="Phone Number"
               required
+              className="w-full border px-4 py-2 rounded"
             />
+
             <input
-              name="email"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              value={form.email}
-              onChange={onChange}
-              className="w-full border px-3 py-2 rounded-md"
               required
+              className="w-full border px-4 py-2 rounded"
             />
+
             <input
-              name="subject"
+              type="text"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
               placeholder="Subject"
-              value={form.subject}
-              onChange={onChange}
-              className="w-full border px-3 py-2 rounded-md"
               required
+              className="w-full border px-4 py-2 rounded"
             />
+
             <textarea
-              name="message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               placeholder="Message"
-              value={form.message}
-              onChange={onChange}
-              rows={3}
-              className="w-full border px-3 py-2 rounded-md"
+              rows={5}
               required
-            />
+              className="w-full border px-4 py-2 rounded"
+            ></textarea>
 
-            {error && <div className="text-red-600 text-sm">{error}</div>}
-
-            <div className="flex justify-between">
+            <div className="flex justify-center md:justify-start">
               <button
                 type="submit"
+                className="px-40 md:px-14 py-3 bg-orange-600 text-white rounded hover:bg-orange-700 disabled:opacity-50"
                 disabled={loading}
-                className="px-6 py-2 rounded-md bg-orange-500 text-white"
               >
-                {loading ? "Sending..." : "Send"}
-              </button>
-              <button
-                type="button"
-                onClick={() => close(true)}
-                className="text-sm text-gray-600 underline"
-              >
-                Not now
+                {loading ? "Sending..." : "Submit"}
               </button>
             </div>
+
+            {success && (
+              <p className="text-orange-600 font-medium pt-2">
+                Message sent successfully!
+              </p>
+            )}
           </form>
-        )}
+        </div>
+
+        {/* Contact Info */}
+        <div className="bg-gray-50 px-6 py-10 rounded-md text-center md:text-left">
+          <h2 className="text-2xl font-semibold mb-6">Get in Touch</h2>
+
+          {/* Address */}
+          <div className="flex items-start gap-3 mb-3">
+            <FaMapMarkerAlt className="text-xl text-gray-700 mt-1" />
+            <p className="text-gray-700">
+              Anugrah Homes, Jattari,
+              <br />
+              Aligarh Palwal Road,
+              <br />
+              Aligarh, Uttar Pradesh 202137
+            </p>
+          </div>
+
+          {/* Email */}
+          <div className="flex items-center gap-3 mb-3">
+            <FaEnvelope className="text-xl text-gray-700" />
+            <a
+              href="mailto:info@anugrahhomes.com"
+              className="text-orange-700 font-medium hover:underline"
+            >
+              info@anugrahhomes.com
+            </a>
+          </div>
+
+          {/* Phone */}
+          <div className="flex items-center gap-3 mb-6">
+            <FaPhoneAlt className="text-xl text-gray-700" />
+            +917678279151 , +919115253545
+          </div>
+
+          {/* Social Links */}
+          <div className="flex justify-center md:justify-start gap-4 mt-4">
+            <a
+              target="_blank"
+              href="https://www.facebook.com/anugrahhomesjattari1/"
+              className="p-2 border rounded-full hover:bg-gray-200"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              target="_blank"
+              href="https://x.com/anugrahomes01"
+              className="p-2 border rounded-full hover:bg-gray-200"
+            >
+              <FaTwitter />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/anugrah-homes-jattari-2bba65383/"
+              className="p-2 border rounded-full hover:bg-gray-200"
+            >
+              <FaLinkedinIn />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.instagram.com/anugr_ahhomes/"
+              className="p-2 border rounded-full hover:bg-gray-200"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.pinterest.com/anugrahomes01/"
+              className="p-2 border rounded-full hover:bg-gray-200"
+            >
+              <FaPinterestP />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.youtube.com/@AnugrahHomes-Jattar"
+              className="p-2 border rounded-full hover:bg-gray-200"
+            >
+              <FaYoutube />
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+
+      {/* Google Map */}
+      <div className="w-full h-[350px] md:h-[400px] rounded overflow-hidden shadow-lg">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3521.931725520839!2d77.6463125!3d28.0265625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39734b5ad060e16d%3A0xd0adf8503a7b53fd!2sAnugrah%20Homes!5e0!3m2!1sen!2sin!4v1757670194639!5m2!1sen!2sin"
+          width="100%"
+          height="100%"
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className="w-full h-full border-none"
+        ></iframe>
+      </div>
+    </section>
   );
-}
+};
+
+export default Contact;

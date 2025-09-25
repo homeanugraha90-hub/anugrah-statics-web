@@ -45,14 +45,23 @@ export default function ModernPopupForm() {
   const validateStep = (currentStep) => {
     switch (currentStep) {
       case 1:
-        if (!formData.name.trim()) return "First name is required";
+        if (!formData.name.trim()) return "Full name is required";
         if (!formData.email.trim()) return "Email is required";
+
         if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email))
           return "Invalid email format";
+        if (!formData.propertyType.trim()) return "Please select a property type";
         return "";
       case 2:
-        if (!formData.phone.trim()) return "Phone number is required";
+        if (formData.phone.trim() === "") {
+          return "Fill the phone number";
+        } else if (formData.phone.length < 10) {
+          return "Enter all digits of phone number";
+        }
         return "";
+
+
+
       default:
         return "";
     }
@@ -135,7 +144,7 @@ export default function ModernPopupForm() {
           {/* Decorative Elements - Hidden on mobile for cleaner look */}
           <div className="absolute top-0 right-0 w-20 h-20 sm:w-32 sm:h-32 bg-white/10 rounded-full -translate-y-10 translate-x-10 sm:-translate-y-16 sm:translate-x-16"></div>
           <div className="absolute bottom-0 left-0 w-12 h-12 sm:w-20 sm:h-20 bg-white/10 rounded-full translate-y-6 -translate-x-6 sm:translate-y-10 sm:-translate-x-10"></div>
-          
+
           <button
             className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white/80 hover:text-white hover:bg-white/20 rounded-full p-2 transition-all duration-200 z-10"
             onClick={() => close(true)}
@@ -144,26 +153,14 @@ export default function ModernPopupForm() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          
+
           <div className="relative">
             <h2 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">Anugrah Homes</h2>
             <p className="text-white/90 text-xs sm:text-sm">Find your dream property with us</p>
           </div>
         </div>
 
-        {/* Progress Indicator */}
-        {/* <div className="px-4 sm:px-6 py-3 sm:py-4 bg-gray-50 flex-shrink-0">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-xs sm:text-sm font-medium text-gray-600">Step {step} of 3</span>
-            <span className="text-xs sm:text-sm text-gray-500">{Math.round((step / 3) * 100)}% Complete</span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-1.5 sm:h-2">
-            <div 
-              className="bg-gradient-to-r from-orange-500 to-red-500 h-1.5 sm:h-2 rounded-full transition-all duration-500 ease-out"
-              style={{ width: `${(step / 3) * 100}%` }}
-            ></div>
-          </div>
-        </div> */}
+
 
         {/* Form Content - Scrollable */}
         <div className="flex-1 overflow-y-auto">
@@ -184,7 +181,7 @@ export default function ModernPopupForm() {
                 {step === 1 && (
                   <div className="space-y-3 sm:space-y-4 animate-slideIn">
                     <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4">Personal Information</h3>
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       <div className="sm:col-span-1">
                         <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Full Name *</label>
@@ -198,22 +195,23 @@ export default function ModernPopupForm() {
                       </div>
                       {/* Phone Number */}
                       <div>
-                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Phone Number *</label>
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => {
-                          let val = e.target.value.replace(/\D/g, "");
-                          if (val.length > 13) val = val.slice(0, 13);
-                          updateField("phone", val);
-                        }}
-                        className="w-full rounded-lg sm:rounded-xl border border-gray-300 px-3 py-2.5 sm:px-4 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent transition-all duration-200"
-                        placeholder="Enter your phone number"
-                        required
-                      />
+                        <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Phone Number *</label>
+                        <input
+                          type="tel"
+
+                          value={formData.phone}
+                          onChange={(e) => {
+                            let val = e.target.value.replace(/\D/g, "");
+                            if (val.length > 13) val = val.slice(0, 13);
+                            updateField("phone", val);
+                          }}
+                          className="w-full rounded-lg sm:rounded-xl border border-gray-300 px-3 py-2.5 sm:px-4 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent transition-all duration-200"
+                          placeholder="Enter your phone number"
+                          required
+                        />
+                      </div>
                     </div>
-                    </div>
-                      {/* Email */}
+                    {/* Email */}
                     <div>
                       <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Email Address *</label>
                       <input
@@ -227,79 +225,26 @@ export default function ModernPopupForm() {
                     </div>
 
 
-                      {/* Property Type */}
-                     <div>
-                        <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Property Type</label>
-                        <select
-                          value={formData.propertyType}
-                          onChange={(e) => updateField("propertyType", e.target.value)}
-                          className="w-full rounded-lg sm:rounded-xl border border-gray-300 px-3 py-2.5 sm:px-4 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent transition-all duration-200 bg-white"
-                        >
-                          <option value="">Select type</option>
-                          <option value="apartment">Apartment</option>
-                          <option value="villa">Villa</option>
-                          <option value="plot">Plot</option>
-                          <option value="commercial">Commercial</option>
-                        </select>
-                      </div>
+                    {/* Property Type */}
+                    <div>
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Property Type</label>
+                      <select
+                        value={formData.propertyType}
+                        required
+                        onChange={(e) => updateField("propertyType", e.target.value)}
+                        className="w-full rounded-lg sm:rounded-xl border border-gray-300 px-3 py-2.5 sm:px-4 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent transition-all duration-200 bg-white"
+                      >
+                        <option value="">Select type</option>
+                        <option value="apartment">Apartment</option>
+                        <option value="villa">Villa</option>
+                        <option value="plot">Plot</option>
+                        <option value="commercial">Commercial</option>
+                      </select>
+                    </div>
 
                   </div>
                 )}
 
-                {/* Step 2: Contact & Location */}
-                {/* {step === 2 && (
-                  <div className="space-y-3 sm:space-y-4 animate-slideIn">
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4">Contact & Location</h3>
-                    
-                    
-
-                    <div>
-                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">City</label>
-                      <input
-                        value={formData.city}
-                        onChange={(e) => updateField("city", e.target.value)}
-                        className="w-full rounded-lg sm:rounded-xl border border-gray-300 px-3 py-2.5 sm:px-4 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent transition-all duration-200"
-                        placeholder="Enter your city"
-                      />
-                    </div>
-                  </div>
-                )} */}
-
-                {/* Step 3: Property Preferences */}
-                {/* {step === 3 && (
-                  <div className="space-y-3 sm:space-y-4 animate-slideIn">
-                    <h3 className="text-base sm:text-lg font-semibold text-gray-800 mb-3 sm:mb-4">Property Preferences</h3>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                     
-                      <div>
-                        <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Budget Range</label>
-                        <select
-                          value={formData.budget}
-                          onChange={(e) => updateField("budget", e.target.value)}
-                          className="w-full rounded-lg sm:rounded-xl border border-gray-300 px-3 py-2.5 sm:px-4 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent transition-all duration-200 bg-white"
-                        >
-                          <option value="">Select budget</option>
-                          <option value="under-50l">Under ₹50L</option>
-                          <option value="50l-1cr">₹50L - ₹1Cr</option>
-                          <option value="1cr-2cr">₹1 - ₹2Cr</option>
-                          <option value="above-2cr">Above ₹2Cr</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Additional Message</label>
-                      <textarea
-                        value={formData.message}
-                        onChange={(e) => updateField("message", e.target.value)}
-                        rows={3}
-                        className="w-full rounded-lg sm:rounded-xl border border-gray-300 px-3 py-2.5 sm:px-4 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent transition-all duration-200 resize-none"
-                        placeholder="Tell us about your requirements..."
-                      />
-                    </div>
-                  </div>
-                )} */}
 
                 {/* Error Message */}
                 {error && (
@@ -310,18 +255,7 @@ export default function ModernPopupForm() {
 
                 {/* Navigation Buttons */}
                 <div className="flex items-center justify-between pt-3 sm:pt-4">
-                  {/* {step > 1 && (
-                    <button
-                      type="button"
-                      onClick={prevStep}
-                      className="flex items-center px-3 py-2 sm:px-4 sm:py-2 text-xs sm:text-sm font-medium text-gray-600 hover:text-gray-800 transition-colors duration-200"
-                    >
-                      <svg className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                      </svg>
-                      Back
-                    </button>
-                  )} */}
+
 
                   <div className="border flex justify-center items-center"></div>
 
@@ -353,6 +287,8 @@ export default function ModernPopupForm() {
                         </>
                       ) : (
                         <>
+
+
                           Submit
                           <svg className="w-3 h-3 sm:w-4 sm:h-4 ml-1 sm:ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
