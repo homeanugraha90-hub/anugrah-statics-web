@@ -257,7 +257,7 @@ export default function ModernPopupForm() {
                 <div className="flex items-center justify-between pt-3 sm:pt-4">
 
 
-                  <div className="border flex justify-center items-center"></div>
+                  
 
                   {step < 1 ? (
                     <button

@@ -78,7 +78,7 @@ export default function ContactSection() {
         {/* Phone */}
         <div className="flex items-center gap-4 mb-8">
           <FaPhoneAlt className="text-2xl text-orange-600" />
-          <span className="text-gray-700 font-medium">+91 9876543210</span>
+          <span className="text-gray-700 font-medium">+917678279151 , +919115253545</span>
         </div>
 
         {/* Social Icons */}
