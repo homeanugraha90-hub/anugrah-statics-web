@@ -60,7 +60,9 @@ export default function ContactSection() {
         <div className="flex items-start gap-4 mb-5">
           <FaMapMarkerAlt className="text-2xl text-orange-600 mt-1" />
           <p className="text-gray-700">
-            123 Main Street, Jattari, Uttar Pradesh, India
+            Anugrah Homes, Jattari,
+Aligarh Palwal Road,
+Uttar Pradesh 202137
           </p>
         </div>
 
