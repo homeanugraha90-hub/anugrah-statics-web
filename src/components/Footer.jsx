@@ -43,16 +43,15 @@ export default function Footer() {
         <div>
           <h3 className="text-white text-lg sm:text-xl font-semibold mb-4">Contact</h3>
           <ul className="space-y-2 text-base  md:text-sm">
-            <li className="flex flex-col sm:flex-row sm:items-start gap-1">
-              <FaAddressCard className="w-4 h-4 text-gray-100 mt-1" />
-              <p>
+            <li className="flex flex-col sm:flex-row sm:items-start gap-2">
+              <FaAddressCard className="w-4 h-4 text-gray-100 mt-1" /> <p>
                 Anugrah Homes, Jattari, <br />
                 Aligarh Palwal Road, <br />
                 Uttar Pradesh 202137
               </p>
             </li>
             <li className="flex items-center gap-2"><FaEnvelope className="w-4 h-4 text-gray-100" /> info@anugrahhomes.com</li>
-            <li className="flex flex-col sm:flex-row sm:items-start gap-1"><Phone className="w-4 h-4 text-gray-100 mt-1" /> <p>
+            <li className="flex flex-col sm:flex-row sm:items-start gap-2"><Phone className="w-4 h-4 text-gray-100 mt-1" /> <p>
               +917678279151 <br/> +919115253545</p></li>
           </ul>
         </div>
@@ -79,17 +78,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 mt-8 py-4 text-center text-xs sm:text-sm text-gray-400 space-y-2">
-        <p>
-          © {new Date().getFullYear()} <span className="font-semibold">Anugrah Homes</span>. All rights reserved.
-        </p>
-        <p>
-          Disclaimer: This website belongs solely to Anugrah Homes and Maxpine Group.
-        </p>
-        <p>
-          All images on this website are owned by Anugrah Homes. No one is allowed to use, copy, download, or distribute these images without explicit permission. Any unauthorized use is strictly prohibited.
-        </p>
-      </div>
+     <div className="border-t border-gray-700 mt-8 py-4 text-center text-xs text-gray-400"> <p> © {new Date().getFullYear()} <span className="font-semibold">Anugrah Homes</span>. All rights reserved. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> Disclaimer: This website belongs solely to Anugrah Homes and Maxpine Group. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> All images on this website are owned by Anugrah Homes. No one is allowed to use, copy, download, or distribute these images without explicit permission. Any unauthorized use is strictly prohibited. </p> </div>
     </footer>
   );
 }
