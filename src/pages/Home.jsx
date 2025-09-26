@@ -85,7 +85,7 @@ export default function Home() {
 
             {/* Articals Section News  8*/}
 
-            <ArticalsSection  />
+            {/* <ArticalsSection  /> */}
 
 
             {/* Anugrah home actual image section 9 */}

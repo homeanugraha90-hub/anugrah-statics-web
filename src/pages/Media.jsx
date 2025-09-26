@@ -13,6 +13,7 @@ import img6 from "../assets/artical-1.jpg";
 import img7 from "../assets/road-1.png";
 import img8 from "../assets/contst-1.jpg";
 import imgs6 from "../assets/artical-5.png";
+import art_1 from "../assets/latest-article_1.png"
 
 const Media = () => {
   const postsPerPage = 2;
@@ -22,6 +23,16 @@ const Media = () => {
   const blogPosts = [
     {
       id: 1,
+      image: art_1,
+      title: "Yamuna Expressway property prices surge: Plots appreciate over 500%, apartments up 158% show data",
+      date: "May 06, 2025",
+      author: "Printer Beatrix",
+      excerpt:
+        "According to the latest RealX Stats by InvestoXpert Advisors, apartments along the corridor appreciated by 158% between 2020 and 2025, while plots witnessed an extraordinary five-fold jump of 536% during the same period.",
+      link: "/articles/future-office-spaces",
+    },
+    {
+      id: 2,
       image: img8,
       title: "The Future Of Office Spaces In A Hybrid Work Era",
       date: "May 06, 2025",
@@ -31,7 +42,7 @@ const Media = () => {
       link: "/articles/future-office-spaces",
     },
     {
-      id: 2,
+      id: 3,
       image: img7,
       title: "Urban Expansion & Infrastructure in 2025",
       date: "July 02, 2025",
@@ -41,7 +52,7 @@ const Media = () => {
       link: "/articles/urban-expansion",
     },
     {
-      id: 3,
+      id: 4,
       image: img8,
       title: "A Perfect Blend of Luxury, Comfort & Location",
       date: "June 15, 2025",
@@ -53,7 +64,7 @@ const Media = () => {
   ];
 
   const recentPosts = [
-    { id: 1, img: img6, title: "Why Millennials Are Reshaping The Real Estate Market", date: "October 21, 2025", link: "/blog/5" },
+    { id: 1, img: art_1, title: "Why Millennials Are Reshaping The Real Estate Market", date: "October 21, 2025", link: "/blog/5" },
     { id: 2, img: img3, title: "Technology Trends Redefining Modern Homes", date: "January 27, 2025", link: "/blog/6" },
     { id: 3, img: img4, title: "Cities With The Highest ROI For Airbnb Rentals", date: "March 27, 2024", link: "/blog/7" },
     { id: 4, img: img5, title: "Affordable Housing: A 2025 Perspective", date: "June 27, 2024", link: "/blog/8" },
@@ -103,7 +114,7 @@ const Media = () => {
         <div className="lg:col-span-8 space-y-12  ">
           {currentPosts.map((post) => (
             <div key={post.id} className="space-y-4 ">
-              <img src={post.image} alt={post.title} className="w-full md:h-[70vh] h-[30vh] rounded-xl object-cover" />
+              <img src={post.image} alt={post.title} className="w-full md:h-[70vh] h-[30vh] rounded-xl object-cover object-top " />
               <div className="text-sm text-gray-500">
                 Post By <span className="font-medium text-black">{post.author}</span> | {post.date}
               </div>
