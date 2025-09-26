@@ -20,21 +20,25 @@ export default function Footer() {
 
         {/* Quick Links */}
      <div className="flex flex-col">
-  <h3 className="text-white text-lg font-semibold mb-4">Quick Links</h3>
-  <ul className="grid grid-cols-2 gap-y-2 text-sm">
-    <li><Link to="/" className="hover:text-[#c54910]">Home</Link></li>
-    <li><Link to="/about" className="hover:text-[#c54910]">About Us</Link></li>
-    <li><Link to="/why-jewar" className="hover:text-[#c54910]">Why Jewar</Link></li>
-    <li><Link to="/amenities" className="hover:text-[#c54910]">Amenities</Link></li>
+      <h3 className="text-white text-lg font-semibold mb-4">Quick Links</h3>
+      <div className="grid grid-cols-2 gap-x-8 gap-y-2 text-sm">
+        <ul className="space-y-2">
+          <li><Link to="/" className="hover:text-[#c54910]">Home</Link></li>
+          <li><Link to="/about" className="hover:text-[#c54910]">About Us</Link></li>
+          <li><Link to="/why-jewar" className="hover:text-[#c54910]">Why Jewar</Link></li>
+          <li><Link to="/amenities" className="hover:text-[#c54910]">Amenities</Link></li>
+          <li><Link to="/media" className="hover:text-[#c54910]">Media</Link></li>
+        </ul>
 
-    <li><Link to="/media" className="hover:text-[#c54910]">Media</Link></li>
-    <li><Link to="/price" className="hover:text-[#c54910]">Price</Link></li>
-    <li><Link to="/faq" className="hover:text-[#c54910]">FAQ</Link></li>
-    <li><Link to="/contact" className="hover:text-[#c54910]">Contact</Link></li>
-    <li><Link to="/site-visit" className="hover:text-[#c54910]">Site Visit</Link></li>
-    <li><Link to="/privacy-policy" className="hover:text-[#c54910]">Privacy Policy</Link></li>
-  </ul>
-</div>
+        <ul className="space-y-2">
+          <li><Link to="/price" className="hover:text-[#c54910]">Price</Link></li>
+          <li><Link to="/faq" className="hover:text-[#c54910]">FAQ</Link></li>
+          <li><Link to="/contact" className="hover:text-[#c54910]">Contact</Link></li>
+          <li><Link to="/site-visit" className="hover:text-[#c54910]">Site Visit</Link></li>
+          <li><Link to="/privacy-policy" className="hover:text-[#c54910]">Privacy Policy</Link></li>
+        </ul>
+      </div>
+    </div>
 
 
         {/* Contact Info */}
