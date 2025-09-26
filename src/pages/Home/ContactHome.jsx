@@ -61,8 +61,8 @@ export default function ContactSection() {
           <FaMapMarkerAlt className="text-2xl text-orange-600 mt-1" />
           <p className="text-gray-700">
             Anugrah Homes, Jattari,
-Aligarh Palwal Road,
-Uttar Pradesh 202137
+            Aligarh Palwal Road,
+            Uttar Pradesh 202137
           </p>
         </div>
 

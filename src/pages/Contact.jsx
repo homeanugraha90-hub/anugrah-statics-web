@@ -187,7 +187,7 @@ const Contact = () => {
               <br />
               Aligarh Palwal Road,
               <br />
-              Aligarh, Uttar Pradesh 202137
+              Uttar Pradesh 202137
             </p>
           </div>
 
