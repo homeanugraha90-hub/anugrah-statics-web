@@ -78,7 +78,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-     <div className="border-t border-gray-700 mt-8 py-4 text-center text-xs text-gray-400"> <p> © {new Date().getFullYear()} <span className="font-semibold">Anugrah Homes</span>. All rights reserved. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> Disclaimer: This website belongs solely to Anugrah Homes and Maxpine Group. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> All images on this website are owned by Anugrah Homes. No one is allowed to use, copy, download, or distribute these images without explicit permission. Any unauthorized use is strictly prohibited. </p> </div>
+     <div className="border-t pb-20 md:pb-4 border-gray-700 mt-8 py-4 text-center text-xs text-gray-400"> <p> © {new Date().getFullYear()} <span className="font-semibold">Anugrah Homes</span>. All rights reserved. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> Disclaimer: This website belongs solely to Anugrah Homes and Maxpine Group. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> All images on this website are owned by Anugrah Homes. No one is allowed to use, copy, download, or distribute these images without explicit permission. Any unauthorized use is strictly prohibited. </p> </div>
     </footer>
   );
 }
