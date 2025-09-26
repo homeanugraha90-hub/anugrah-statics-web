@@ -80,7 +80,7 @@ const Contact = () => {
       <Navbar />
 
       {/* Banner Section */}
-      <div className="relative w-full h-64 md:h-80 lg:h-[500px]">
+      <div className="relative w-full  md:h-[400px]  lg:h-[500px] h-[300px]">
         <img
           src={img1}
           alt="Contact Banner"

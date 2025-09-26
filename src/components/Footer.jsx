@@ -40,19 +40,48 @@ export default function Footer() {
         </div>
 
         {/* Contact Info */}
-        <div>
+       <div>
           <h3 className="text-white text-lg sm:text-xl font-semibold mb-4">Contact</h3>
-          <ul className="space-y-2 text-base  md:text-sm">
+          <ul className="space-y-2 text-base md:text-sm">
+            {/* Address */}
             <li className="flex flex-col sm:flex-row sm:items-start gap-2">
-              <FaAddressCard className="w-4 h-4 text-gray-100 mt-1" /> <p>
+              <FaAddressCard className="w-4 h-4 text-gray-100 mt-1" />
+              <p>
                 Anugrah Homes, Jattari, <br />
                 Aligarh Palwal Road, <br />
                 Uttar Pradesh 202137
               </p>
             </li>
-            <li className="flex items-center gap-2"><FaEnvelope className="w-4 h-4 text-gray-100" /> info@anugrahhomes.com</li>
-            <li className="flex flex-col sm:flex-row sm:items-start gap-2"><Phone className="w-4 h-4 text-gray-100 mt-1" /> <p>
-              +917678279151 <br/> +919115253545</p></li>
+
+            {/* Email - mailto */}
+            <li className="flex items-center gap-2">
+              <FaEnvelope className="w-4 h-4 text-gray-100" />
+              <a
+                href="mailto:info@anugrahhomes.com"
+                className="hover:text-white cursor-pointer transition-colors"
+              >
+                info@anugrahhomes.com
+              </a>
+            </li>
+
+            {/* Phone numbers - tel */}
+            <li className="flex flex-col sm:flex-row sm:items-start gap-2">
+              <Phone className="w-4 h-4 text-gray-100 mt-1" />
+              <div className="flex flex-col">
+                <a
+                  href="tel:+917678279151"
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  +91 76782 79151
+                </a>
+                <a
+                  href="tel:+919115253545"
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  +91 91152 53545
+                </a>
+              </div>
+            </li>
           </ul>
         </div>
 
