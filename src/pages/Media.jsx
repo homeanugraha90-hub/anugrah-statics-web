@@ -112,40 +112,93 @@ const Media = () => {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-12 gap-8">
         {/* Blog Posts */}
-        <div className="lg:col-span-8 space-y-12  ">
-         {currentPosts.map((post) => (
-            <div key={post.id} className="space-y-4 ">
-              <img src={post.image} alt={post.title} className="w-full md:h-[70vh] h-[30vh] rounded-xl object-cover object-top " />
-              <div className="text-sm text-gray-500">
-                Post By <span className="font-medium text-black">{post.author}</span> | {post.date}
-              </div>
-              <h2 className="md:text-3xl text-2xl font-serif">{post.title}</h2>
-              <p className="text-gray-600">{post.excerpt}</p>
-              <Link to={post.link} className="text-blue-600 font-semibold hover:underline">
-                Read More →
-              </Link>
-            </div>
-          ))}
+        <div className="lg:col-span-8 space-y-12 px-4 sm:px-6 lg:px-8">
+  {currentPosts.map((post) => (
+    <div key={post.id} className="space-y-4">
+      {/* Responsive Image */}
+      <img
+        src={post.image}
+        alt={post.title}
+        className="w-full h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[60vh] rounded-xl object-cover object-top"
+      />
 
-          {/* Pagination */}
-          <div className="flex justify-center gap-2 pt-10 items-center">
-            <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1} className={`p-2 border rounded-full transition ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"}`}>
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            {getPageNumbers().map((page, index) =>
-              page === "..." ? (
-                <span key={index} className="px-3">...</span>
-              ) : (
-                <button key={page} onClick={() => setCurrentPage(page)} className={`px-4 py-2 border rounded transition ${currentPage === page ? "bg-gray-800 text-white" : "hover:bg-gray-100"}`}>
-                  {page}
-                </button>
-              )
-            )}
-            <button onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} className={`p-2 border rounded-full transition ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100"}`}>
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
+      {/* Author + Date */}
+      <div className="text-xs sm:text-sm text-gray-500">
+        Post By{" "}
+        <span className="font-medium text-black">{post.author}</span> |{" "}
+        {post.date}
+      </div>
+
+      {/* Title */}
+      <h2 className="text-xl sm:text-2xl md:text-3xl font-serif leading-snug">
+        {post.title}
+      </h2>
+
+      {/* Excerpt */}
+      <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+        {post.excerpt}
+      </p>
+
+      {/* Read More Link */}
+      <Link
+        to={post.link}
+        className="text-blue-600 font-semibold hover:underline text-sm sm:text-base"
+      >
+        Read More →
+      </Link>
+    </div>
+  ))}
+
+  {/* Pagination */}
+  <div className="flex justify-center gap-2 pt-10 items-center flex-wrap">
+    <button
+      onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+      disabled={currentPage === 1}
+      className={`p-2 border rounded-full transition ${
+        currentPage === 1
+          ? "opacity-50 cursor-not-allowed"
+          : "hover:bg-gray-100"
+      }`}
+    >
+      <ChevronLeft className="w-5 h-5" />
+    </button>
+
+    {getPageNumbers().map((page, index) =>
+      page === "..." ? (
+        <span key={index} className="px-3">
+          ...
+        </span>
+      ) : (
+        <button
+          key={page}
+          onClick={() => setCurrentPage(page)}
+          className={`px-3 sm:px-4 py-1.5 sm:py-2 border rounded transition text-sm sm:text-base ${
+            currentPage === page
+              ? "bg-gray-800 text-white"
+              : "hover:bg-gray-100"
+          }`}
+        >
+          {page}
+        </button>
+      )
+    )}
+
+    <button
+      onClick={() =>
+        setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+      }
+      disabled={currentPage === totalPages}
+      className={`p-2 border rounded-full transition ${
+        currentPage === totalPages
+          ? "opacity-50 cursor-not-allowed"
+          : "hover:bg-gray-100"
+      }`}
+    >
+      <ChevronRight className="w-5 h-5" />
+    </button>
+  </div>
+</div>
+
 
         {/* Sidebar */}
         <div className="lg:col-span-4 space-y-10 border-[#c5c0c0] border h-12/12 rounded-2xl md:p-8 p-2">

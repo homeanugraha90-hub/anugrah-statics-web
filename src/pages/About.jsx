@@ -170,21 +170,21 @@ const About = () => {
           <div className="hidden lg:block  relative top-4 left-0 w-full h-1 bg-gray-200 z-0"></div>
 
           {/* Milestones Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 relative z-10 lg:grid-cols-5">
             {milestones.map((item, index) => (
               <div
                 key={index}
-                className="relative flex flex-col items-center text-center group"
+                className="relative flex flex-col items-center  text-center group "
               >
                 {/* Timeline Circle */}
                 <div className="w-8 h-8 hidden lg:block  md:w-6 md:h-6 bg-[#33ef4f] border-4 border-white rounded-full shadow-lg mb-4 md:mb-2 relative z-20 transition-transform duration-500 group-hover:scale-110"></div>
 
                 {/* Card with visible border and fixed height */}
-                <div className="relative overflow-hidden  w-full  max-w-[300px] p-4 flex flex-col justify-center h-[200px] bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
-                  <h4 className=" text-sm md:text-md font-bold uppercase text-orange-500 mb-0 md:mb-2">
+                <div className="relative  overflow-hidden  w-full  max-w-[300px] p-4 flex flex-col justify-center h-[200px] bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-lg transition-all duration-300">
+                  <h4 className=" text-sm md:text-lg font-bold uppercase text-orange-500 mb-0 md:mb-2">
                     {item.title}
                   </h4>
-                  <p className="text-gray-600 text-sm sm:text-base leading-snug">
+                  <p className="text-gray-600  text-sm md::text-base leading-snug">
                     {item.description}
                   </p>
 
@@ -209,7 +209,7 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div>
             <h4 className="text-sm uppercase text-gray-400 font-semibold tracking-wide">Our Process</h4>
-            <h2 className=" text-3xl md:text-5xl font-bold md:font-light mb-8">Homebuying Steps</h2>
+            <h2 className=" text-3xl md:text-4xl lg:text-5xl font-bold md:font-light mb-8">Homebuying Steps</h2>
             {steps.map((step, idx) => (
               <div key={idx} onMouseEnter={() => setActiveIndex(idx)} className="group cursor-pointer mb-6">
                 <div className="border-l-4 pl-4 transition-all duration-300 ease-in-out group-hover:border-[#7a982c] border-gray-200">

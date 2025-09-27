@@ -6,7 +6,7 @@ import Subscribe from "./Subscribe";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1d1e22]  text-gray-300 pb-18 lg:pb-0 ">
+    <footer className="bg-[#1d1e22]  text-gray-300 pb-6 lg:pb-0 ">
       <div className="max-w-7xl  mx-auto px-6  pt-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
 
         {/* Company Info */}
@@ -107,7 +107,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-     <div className="border-t pb-20 md:pb-4 border-gray-700 mt-8 py-4 text-center text-xs text-gray-400"> <p> © {new Date().getFullYear()} <span className="font-semibold">Anugrah Homes</span>. All rights reserved. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> Disclaimer: This website belongs solely to Anugrah Homes and Maxpine Group. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> All images on this website are owned by Anugrah Homes. No one is allowed to use, copy, download, or distribute these images without explicit permission. Any unauthorized use is strictly prohibited. </p> </div>
+     <div className="border-t pb-14 lg:pb-4 border-gray-700 mt-8 py-4 text-center text-xs text-gray-400"> <p> © {new Date().getFullYear()} <span className="font-semibold">Anugrah Homes</span>. All rights reserved. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> Disclaimer: This website belongs solely to Anugrah Homes and Maxpine Group. </p> <p className="mt-2 max-w-4xl mx-auto text-[11px]"> All images on this website are owned by Anugrah Homes. No one is allowed to use, copy, download, or distribute these images without explicit permission. Any unauthorized use is strictly prohibited. </p> </div>
     </footer>
   );
 }

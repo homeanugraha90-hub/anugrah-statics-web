@@ -29,9 +29,9 @@ export default function IntroSection() {
     >
       <div className="grid md:grid-cols-2 gap-12 items-center">
         {/* LEFT SIDE - Overlapping Images */}
-        <div
-          className="relative flex justify-center md:justify-start group cursor-pointer 
-          w-full max-w-[500px] h-[40vh] sm:h-[60vh] md:h-[70vh] mx-auto"
+         <div
+          className="relative flex justify-center lg:justify-start group cursor-pointer 
+          w-full max-w-[400px] md:max-w-[500px] lg:max-w-none h-[300px] sm:h-[400px] md:h-[500px] lg:h-[550px] mx-auto"
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
@@ -44,7 +44,7 @@ export default function IntroSection() {
             <img
               src={img1}
               alt="Anugrah Homes - Residential Plots"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
 
@@ -57,7 +57,7 @@ export default function IntroSection() {
             <img
               src={img2}
               alt="Anugrah Homes - Park View"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
         </div>

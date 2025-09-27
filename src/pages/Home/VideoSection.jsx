@@ -69,7 +69,7 @@ export default function VideoSection({ videoSection }) {
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute -top-4 right-4 bg-white text-gray-800 w-10 h-10 
+              className="absolute -top-4 right-0 pl-3 bg-white text-gray-800 w-10 h-10 
                rounded-full shadow-md hover:bg-red-500 hover:text-white transition"
             >
               <X className="w-4 h-4" />

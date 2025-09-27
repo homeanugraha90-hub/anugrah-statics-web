@@ -54,7 +54,7 @@ const Price = () => {
             <p className="text-sm text-gray-500 mb-4">
               Perfect for compact luxury homes.
             </p>
-            <span className="md:text-4xl text-2xl font-extrabold mb-6">₹52.5 Lakh</span>
+            <span className="md:text-3xl text-2xl font-extrabold mb-6">₹52.5 Lakh</span>
             <button onClick={() => nav("/site-visit")} className="bg-white border border-black text-black px-4 py-2 font-medium rounded hover:bg-black hover:text-white transition">
               Book Now
             </button>
@@ -87,7 +87,7 @@ const Price = () => {
             <p className="text-sm text-gray-500 mb-4">
               Best choice for spacious villas.
             </p>
-            <span className="md:text-4xl text-2xl font-extrabold mb-6">₹105 Lakh</span>
+            <span className="md:text-3xl text-2xl font-extrabold mb-6">₹105 Lakh</span>
             <button onClick={() => nav("/site-visit")} className="bg-black text-white px-4 py-2 font-medium rounded hover:bg-gray-800 transition">
               Book Now
             </button>
@@ -117,7 +117,7 @@ const Price = () => {
             <p className="text-sm text-gray-500 mb-4">
               Ideal for large luxury residences.
             </p>
-            <span className="md:text-4xl text-2xl font-extrabold mb-6">₹157.5 Lakh</span>
+            <span className="md:text-3xl text-2xl font-extrabold mb-6">₹157.5 Lakh</span>
             <button onClick={() => nav("/site-visit")} className="bg-white border border-black text-black px-4 py-2 font-medium rounded hover:bg-black hover:text-white transition">
               Book Now
             </button>

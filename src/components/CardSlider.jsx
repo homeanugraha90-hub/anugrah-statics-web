@@ -49,10 +49,10 @@ export default function CardSlider() {
         <p className="text-sm font-semibold uppercase text-gray-500 tracking-wide">
           Our Testimonials
         </p>
-        <h2 className="md:text-4xl text-2xl font-bold mt-2 mb-12 text-gray-900">
+        <h2 className="md:text-4xl text-2xl font-bold mt-2 lg:mb-12 text-gray-900">
           What People Say
         </h2>
-<div className=" py-10">
+<div className=" lg:py-10">
 
 
         <Swiper
