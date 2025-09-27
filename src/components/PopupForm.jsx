@@ -50,22 +50,27 @@ export default function ModernPopupForm() {
 
         if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(formData.email))
           return "Invalid email format";
-        if (!formData.propertyType.trim()) return "Please select a property type";
+
+        if (!formData.plotArea) return "Please select a Plot Area";
+
+        if (formData.plotArea === "custom" && !formData.customPlotArea?.trim())
+          return "Please enter a custom plot area";
+
         return "";
+
       case 2:
-        if (formData.phone.trim() === "") {
+        if (!formData.phone.trim()) {
           return "Fill the phone number";
         } else if (formData.phone.length < 10) {
           return "Enter all digits of phone number";
         }
         return "";
 
-
-
       default:
         return "";
     }
   };
+
 
   const nextStep = () => {
     const err = validateStep(step);
@@ -77,10 +82,7 @@ export default function ModernPopupForm() {
     setStep((prev) => prev + 1);
   };
 
-  const prevStep = () => {
-    setError("");
-    setStep((prev) => prev - 1);
-  };
+
 
   const onSubmit = async () => {
     setError("");
@@ -89,6 +91,11 @@ export default function ModernPopupForm() {
     if (finalError) return setError(finalError);
 
     setLoading(true);
+    const finalPlotArea =
+      formData.plotArea === "custom"
+        ? formData.customPlotArea
+        : formData.plotArea;
+
 
     const date = new Date();
     const userdate = date.toLocaleDateString();
@@ -101,8 +108,8 @@ export default function ModernPopupForm() {
         Name: ${formData.name} ${formData.lastName}
         Email: ${formData.email}
         Phone: ${formData.phone}
-        Property Type: ${formData.propertyType}
-        Date: ${userdate}
+        Area required: ${finalPlotArea} Sq. Yards  
+       Date: ${userdate}
         Time: ${usertime}
       `,
     };
@@ -227,20 +234,36 @@ export default function ModernPopupForm() {
 
                     {/* Property Type */}
                     <div>
-                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Property Type</label>
+                      <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+                        Plot Area (Sq. Yards)
+                      </label>
                       <select
-                        value={formData.propertyType}
+                        value={formData.plotArea}
                         required
-                        onChange={(e) => updateField("propertyType", e.target.value)}
+                        onChange={(e) => updateField("plotArea", e.target.value)}
                         className="w-full rounded-lg sm:rounded-xl border border-gray-300 px-3 py-2.5 sm:px-4 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent transition-all duration-200 bg-white"
                       >
-                        <option value="">Select type</option>
-                        <option value="apartment">Apartment</option>
-                        <option value="villa">Villa</option>
-                        <option value="plot">Plot</option>
-                        <option value="commercial">Commercial</option>
+                        <option value="">Select area</option>
+                        <option value="100">100 Sq. Yards</option>
+                        <option value="200">200 Sq. Yards</option>
+                        <option value="300">300 Sq. Yards</option>
+                        <option value="custom">Custom Area</option>
                       </select>
+
+                      {/* Show Input Field if Custom Selected */}
+                      {formData.plotArea === "custom" && (
+                        <input
+                          type="number"
+                          placeholder="Enter custom area"
+                          required
+                          value={formData.customPlotArea || ""}
+                          onChange={(e) => updateField("customPlotArea", e.target.value)}
+                          className="mt-3 w-full rounded-lg sm:rounded-xl border border-gray-300 px-3 py-2.5 sm:px-4 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-orange-300 focus:border-transparent transition-all duration-200 bg-white"
+                        />
+                      )}
                     </div>
+
+
 
                   </div>
                 )}
@@ -257,7 +280,7 @@ export default function ModernPopupForm() {
                 <div className="flex items-center justify-between pt-3 sm:pt-4">
 
 
-                  
+
 
                   {step < 1 ? (
                     <button

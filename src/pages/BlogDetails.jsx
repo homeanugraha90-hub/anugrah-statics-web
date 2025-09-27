@@ -4,6 +4,7 @@ import img3 from "../assets/artical-2.jpg";
 import img4 from "../assets/artical-3.png";
 import img5 from "../assets/artical-4.png";
 import imgs6 from "../assets/artical-5.png";
+import art_1 from "../assets/latest-article_1.png"
 
 const BlogDetails = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ const BlogDetails = () => {
   // Static blog data
   const blogs = [
     {
-      _id: "5",
+      _id: "0",
       title: "Why Millennials Are Reshaping The Real Estate Market",
       author: "Printer Beatrix",
       date: "June 28, 2024",
@@ -36,11 +37,57 @@ const BlogDetails = () => {
     },
     {
       _id: "3",
-      title: "Cities With The Highest ROI For Airbnb Rentals",
-      author: "Printer Beatrix",
-      date: "March 27, 2024",
-      content: `The rise of short-term rentals through platforms like Airbnb has completely transformed the way people invest in real estate. Instead of relying solely on long-term tenants, homeowners and investors now explore markets where tourism and business travel fuel strong demand for short stays. The key metric here is Return on Investment (ROI), which depends on property prices, occupancy rates, and average nightly income.\n\nFactors That Boost Airbnb ROI:\n- Tourism & Business Hubs – Cities with consistent visitor traffic ensure high occupancy rates.\n- Affordable Property Prices – Lower purchase costs combined with high rental income increase returns.\n- Local Regulations – Friendly short-term rental policies attract investors.\n\nTop Cities Showing High ROI Potential:\n1. Miami, USA – With year-round tourism, beaches, and nightlife, Miami properties enjoy strong occupancy rates and premium pricing.\n2. Lisbon, Portugal – A booming tourist hub with relatively affordable property values compared to Western Europe.\n3. Bali, Indonesia – A global hotspot for remote workers and vacationers, ensuring consistent bookings.\n4. Dubai, UAE – With luxury tourism, business travel, and tax benefits, Dubai leads as a top Airbnb investment city.\n5. Mexico City, Mexico – Low property costs with high urban demand make it an investor’s favorite.\n\nWhy It Matters:\nIn 2025, as travelers seek unique stays and flexible accommodation options, Airbnb continues to outperform traditional rentals in many global cities. Smart investors carefully analyze location, tourism trends, and government policies to choose markets that maximize their ROI.`,
-      images: [img4],
+      title: "Yamuna Expressway property prices surge: Plots appreciate over 500%, apartments up 158% show data",
+      date: "September 27, 2025",
+      content: `Yamuna Expressway Property Prices Surge: Plots Appreciate Over 500%, Apartments Up 158%
+
+Over the past five years, the Yamuna Expressway corridor has witnessed an unprecedented transformation in its real estate market, drawing attention from investors, developers, and homebuyers alike. The once quiet stretch connecting Greater Noida to Agra has now become a hotspot for property investment, largely driven by improved infrastructure, rapid urbanization, and government-backed development initiatives.
+
+1. Explosive Growth in Plot Values
+
+According to the latest data from InvestoXpert Advisors, plots along the Yamuna Expressway have appreciated by an astounding 536% between 2020 and 2025. This phenomenal growth is primarily fueled by strategic connectivity improvements, including widened highways, express metro links, and proximity to upcoming industrial and commercial hubs. Investors who purchased land in the early 2020s are now witnessing exponential returns, making this corridor one of the most lucrative real estate investment zones in northern India.
+
+Several factors have contributed to this surge:
+
+Infrastructure Development: Ongoing expansions and expressway improvements have drastically reduced commute times to Delhi and Noida, attracting more residential and commercial projects.
+
+Proximity to Industrial Hubs: With industrial zones and logistics parks springing up along the expressway, demand for land from businesses and employees has soared.
+
+Urban Spillover: As Noida and Greater Noida become saturated, investors are moving to the expressway region for affordable plots and better ROI.
+
+2. Apartments Witness Strong Appreciation
+
+Apartments in the Yamuna Expressway region have also shown remarkable growth, appreciating by 158% over the last five years. Residential projects ranging from mid-segment apartments to luxury villas have been launched by leading developers, offering modern amenities, gated communities, and high-quality infrastructure. This surge reflects increased housing demand among millennials and working professionals who seek modern living spaces close to industrial and IT corridors.
+
+Key reasons for apartment growth include:
+
+Modern Amenities and Gated Communities: Security, landscaping, and recreational facilities make these projects attractive to families.
+
+Affordable Housing Policies: Government incentives, including PMAY and low-interest home loans, have made apartment buying more accessible.
+
+Rise of Hybrid Work Culture: Professionals working remotely or in hybrid setups prefer modern apartments with connectivity and workspace integration.
+
+3. Demand Drivers and Investment Potential
+
+The surge in both plot and apartment values is closely linked to broader economic and social trends. As investors seek high-return assets, the Yamuna Expressway corridor has become a preferred choice due to its:
+
+Proximity to Major Cities: Being just a few hours from Delhi, Noida, and Agra makes it an attractive residential and investment option.
+
+Government and Private Initiatives: Smart city projects, expressway widening, and industrial parks are continuously boosting investor confidence.
+
+Long-Term Growth Potential: Compared to saturated urban areas, this corridor offers significant room for value appreciation, making it ideal for long-term investments.
+
+4. Challenges and Considerations
+
+While the market is booming, prospective buyers and investors must exercise caution. Rapid growth can sometimes lead to speculative bubbles, and proper due diligence is necessary before making large investments. Legal verification, developer credibility, and infrastructure completion timelines are critical factors to consider.
+
+5. Outlook for 2025 and Beyond
+
+Experts predict that the Yamuna Expressway real estate market will continue its upward trajectory, albeit at a more stabilized pace. The combination of residential, commercial, and infrastructural development ensures sustained demand, while affordability relative to Delhi-NCR core areas keeps the corridor attractive for middle-class and HNI investors alike.
+
+Conclusion:
+The Yamuna Expressway has firmly established itself as a prime investment corridor. With plots appreciating over 500% and apartments rising 158%, it reflects not just the growth of the real estate sector but also the broader economic development of the region. For investors and homebuyers, strategic entry now could yield substantial returns in the years to come.`,
+      images: [art_1],
     },
     {
       _id: "4",
@@ -50,17 +97,19 @@ const BlogDetails = () => {
       content: `As urban populations continue to rise, affordable housing has become one of the most pressing concerns in 2025. With increasing property prices, growing migration to cities, and shifting lifestyles, governments and developers are rethinking how to provide sustainable, inclusive, and cost-effective living options.\n\nKey Factors Driving Affordable Housing in 2025\n- Smart Urban Planning – Cities are prioritizing mixed-use communities, where residents can live, work, and access amenities without high commuting costs.\n- Government Policies & Subsidies – Initiatives like tax benefits, low-interest home loans, and public-private partnerships are boosting affordable housing projects.\n- Technology Integration – Prefabricated homes, modular construction, and AI-driven design are reducing construction costs and making homes more accessible.\n- Sustainability – Eco-friendly, energy-efficient housing is being prioritized to cut long-term expenses for residents.\n- Community Living Models – Co-living spaces and shared amenities are emerging as a cost-effective solution for young professionals and low-income families.\n\nThe 2025 Outlook\nAffordable housing is no longer just about low-cost homes; it’s about quality, accessibility, and inclusivity. Cities that succeed in balancing affordability with modern infrastructure will not only address housing shortages but also foster stronger, more resilient communities.`,
       images: [img5],
     },
+
   ];
 
   // Find the blog by id
   const blog = blogs.find((b) => b._id === id) || blogs[0];
+  // console.log("Show Id",id,"Blog id ",blog._id)
 
   return (
-    <div className="max-w-4xl mx-auto py-12 px-6 pt-20">
+    <div className="max-w-4xl  mx-auto py-12 px-6 pt-28">
       <img
-        src={blog.images[0]}
+        src={blog.images}
         alt={blog.title}
-        className="w-full h-80 object-cover rounded-xl"
+        className="w-full h-[30vh] md:h-[60vh] object-cover object-top  rounded-xl"
       />
       <h1 className="text-4xl font-bold mt-6">{blog.title}</h1>
       <p className="text-gray-500 text-sm mt-2">

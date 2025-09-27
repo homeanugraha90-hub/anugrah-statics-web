@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "image": "../assets/latest-article_1.png",
+    "title": "Why Millennials Are Reshaping The Real Estate Market",
+    "date": "October 21, 2025",
+    "link": "/blog/5"
+  },
+  {
+    "id": 2,
+    "image": "../assets/artical-2.jpg",
+    "title": "Technology Trends Redefining Modern Homes",
+    "date": "January 27, 2025",
+    "link": "/blog/6"
+  },
+  {
+    "id": 3,
+    "image": "../assets/artical-3.png",
+    "title": "Cities With The Highest ROI For Airbnb Rentals",
+    "date": "March 27, 2024",
+    "link": "/blog/7"
+  },
+  {
+    "id": 4,
+    "image": "../assets/artical-4.png",
+    "title": "Affordable Housing: A 2025 Perspective",
+    "date": "June 27, 2024",
+    "link": "/blog/8"
+  },
+  {
+    "id": 5,
+    "image": "../assets/artical-5.png",
+    "title": "Why Millennials Are Reshaping The Real Estate Market",
+    "date": "June 28, 2024",
+    "link": "/blog/9"
+  }
+]

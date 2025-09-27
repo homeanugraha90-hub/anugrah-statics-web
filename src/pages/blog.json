@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "1",
+    "image": "/assets/latest-article_1.png",
+    "title": "Yamuna Expressway property prices surge: Plots appreciate over 500%, apartments up 158% show data",
+    "date": "May 06, 2025",
+    "author": "Printer Beatrix",
+    "excerpt": "According to the latest RealX Stats by InvestoXpert Advisors, apartments along the corridor appreciated by 158% between 2020 and 2025, while plots witnessed an extraordinary five-fold jump of 536% during the same period.",
+    "content": "Full content of article 1 goes here...",
+    "link": "/blog/1"
+  },
+  {
+    "_id": "2",
+    "image": "/assets/contst-1.jpg",
+    "title": "The Future Of Office Spaces In A Hybrid Work Era",
+    "date": "May 06, 2025",
+    "author": "Printer Beatrix",
+    "excerpt": "Highway expansion projects are not just improving connectivity, but also transforming real estate landscapes by boosting demand for housing, commercial spaces, and industrial hubs.",
+    "content": "Full content of article 2 goes here...",
+    "link": "/blog/2"
+  },
+  {
+    "_id": "3",
+    "image": "/assets/road-1.png",
+    "title": "Urban Expansion & Infrastructure in 2025",
+    "date": "July 02, 2025",
+    "author": "Printer Beatrix",
+    "excerpt": "Rapid urban expansion is reshaping cities, creating opportunities in housing, transport, and digital connectivity.",
+    "content": "Full content of article 3 goes here...",
+    "link": "/blog/3"
+  }
+]

@@ -5,7 +5,7 @@ import { Search, ChevronLeft, ChevronRight } from "lucide-react";
 // Local images
 import gate from "../assets/gate-1.png";
 // import img1 from "../assets/park-7.jpg";
-// import img2 from "../assets/garden-3.jpg";
+import img2 from "../assets/garden-3.jpg";
 import img3 from "../assets/artical-2.jpg";
 import img4 from "../assets/artical-3.png";
 import img5 from "../assets/artical-4.png";
@@ -19,27 +19,17 @@ const Media = () => {
   const postsPerPage = 2;
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Static blog posts (all local data)
+  // Static blog posts (all local data) - ordered from latest to oldest
   const blogPosts = [
     {
-      id: 1,
+      id: 4,
       image: art_1,
       title: "Yamuna Expressway property prices surge: Plots appreciate over 500%, apartments up 158% show data",
-      date: "May 06, 2025",
+      date: "June 15, 2025",
       author: "Printer Beatrix",
       excerpt:
-        "According to the latest RealX Stats by InvestoXpert Advisors, apartments along the corridor appreciated by 158% between 2020 and 2025, while plots witnessed an extraordinary five-fold jump of 536% during the same period.",
-      link: "/articles/future-office-spaces",
-    },
-    {
-      id: 2,
-      image: img8,
-      title: "The Future Of Office Spaces In A Hybrid Work Era",
-      date: "May 06, 2025",
-      author: "Printer Beatrix",
-      excerpt:
-        "Highway expansion projects are not just improving connectivity, but also transforming real estate landscapes by boosting demand for housing, commercial spaces, and industrial hubs.",
-      link: "/articles/future-office-spaces",
+        " According to the latest RealX Stats by InvestoXpert Advisors, apartments along the corridor appreciated by 158% between 2020 and 2025, while plots witnessed an extraordinary five-fold jump of 536% during the same period.",
+      link: "/blog/3",
     },
     {
       id: 3,
@@ -49,26 +39,37 @@ const Media = () => {
       author: "Printer Beatrix",
       excerpt:
         "Rapid urban expansion is reshaping cities, creating opportunities in housing, transport, and digital connectivity.",
-      link: "/articles/urban-expansion",
+      link: "/blog/2",
     },
     {
-      id: 4,
-      image: img8,
-      title: "A Perfect Blend of Luxury, Comfort & Location",
-      date: "June 15, 2025",
+      id: 2,
+      image: img2,
+      title: "The Future Of Office Spaces In A Hybrid Work Era",
+      date: "May 06, 2025",
       author: "Printer Beatrix",
       excerpt:
-        "Finding a dream home is more than just choosing four walls – it’s about discovering a lifestyle that balances luxury, comfort, and the right location.",
-      link: "/articles/luxury-comfort-location",
+        "Highway expansion projects are not just improving connectivity, but also transforming real estate landscapes by boosting demand for housing, commercial spaces, and industrial hubs.",
+      link: "/blog/1",
+    },
+    {
+      id: 1,
+      image: img8,
+      link: "/blog/0",
+      title: "A Perfect Blend of Luxury, Comfort & Location",
+      date: "May 06, 2025",
+      author: "Printer Beatrix",
+      excerpt:
+        "Finding a dream home is more than just choosing four walls – it's about discovering a lifestyle that balances luxury, comfort, and the right location.",
     },
   ];
 
+  // Recent posts - ordered from latest to oldest
   const recentPosts = [
-    { id: 1, img: art_1, title: "Why Millennials Are Reshaping The Real Estate Market", date: "October 21, 2025", link: "/blog/5" },
-    { id: 2, img: img3, title: "Technology Trends Redefining Modern Homes", date: "January 27, 2025", link: "/blog/6" },
-    { id: 3, img: img4, title: "Cities With The Highest ROI For Airbnb Rentals", date: "March 27, 2024", link: "/blog/7" },
-    { id: 4, img: img5, title: "Affordable Housing: A 2025 Perspective", date: "June 27, 2024", link: "/blog/8" },
-    { id: 5, img: imgs6, title: "Why Millennials Are Reshaping The Real Estate Market", date: "June 28, 2024", link: "/blog/9" },
+    { id: 1, img: art_1, title: "Yamuna Expressway property prices surge...", date: "October 21, 2025", link: "/blog/3" },
+    { id: 5, img: imgs6, title: "Why Millennials Are Reshaping The Real Estate Market...", date: "June 28, 2024", link: "/blog/4" },
+    { id: 4, img: img5, title: "Affordable Housing: A 2025 Perspective...", date: "June 27, 2024", link: "/blog/3" },
+    { id: 3, img: img4, title: "Cities With The Highest ROI For Airbnb Rentals...", date: "March 27, 2024", link: "/blog/2" },
+    { id: 2, img: img3, title: "Technology Trends Redefining Modern Homes...", date: "January 27, 2025", link: "/blog/1" },
   ];
 
   const totalPages = Math.ceil(blogPosts.length / postsPerPage);
@@ -112,7 +113,7 @@ const Media = () => {
       <div className="max-w-7xl mx-auto px-4 py-12 grid lg:grid-cols-12 gap-8">
         {/* Blog Posts */}
         <div className="lg:col-span-8 space-y-12  ">
-          {currentPosts.map((post) => (
+         {currentPosts.map((post) => (
             <div key={post.id} className="space-y-4 ">
               <img src={post.image} alt={post.title} className="w-full md:h-[70vh] h-[30vh] rounded-xl object-cover object-top " />
               <div className="text-sm text-gray-500">
@@ -176,7 +177,7 @@ const Media = () => {
                   <img src={post.img} alt={post.title} className="w-20 h-20 rounded object-cover" />
                   <div>
                     <Link to={post.link} className="font-semibold hover:underline">{post.title}</Link>
-                    <span className="text-xs text-gray-500">{post.date}</span>
+                    <span className="text-xs text-gray-500 block">{post.date}</span>
                   </div>
                 </div>
               ))}
