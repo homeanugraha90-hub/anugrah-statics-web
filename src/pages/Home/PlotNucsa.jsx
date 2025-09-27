@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import price24 from "../../assets/Price-List-=2024.jpg";
-import price25 from "../../assets/price-2025.jpeg";
+import price25 from "../../assets/price-2025.jpg";
 import layout from "../../assets/Layout-img-2.jpg";
 import location from "../../assets/location.png";
 import { X } from "lucide-react";
