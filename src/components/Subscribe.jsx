@@ -8,29 +8,28 @@ export default function Subscribe() {
     if (email) {
       alert(`Thank you for subscribing with ${email}!`);
       setEmail("");
-      // Here you can integrate EmailJS or your backend API to save the email
+      // Integrate EmailJS or backend API here
     } else {
       alert("Please enter a valid email address.");
     }
   };
 
   return (
-    <div className="bg-[#1d1e22]  pt-8 md:w-80 rounded-lg text-gray-300">
-      <h3 className="text-white text-lg sm:text-xl font-semibold mb-4">Subscribe</h3>
-      {/* <p className="text-sm sm:text-base mb-4">
-        Get the latest updates about plots, offers, and news directly in your inbox.
-      </p> */}
-      <div className="flex flex-col sm:flex-row gap-2">
+    <div className="bg-[#1d1e22] md:w-[30vh] lg:w-[50vh] w-full py-6    mx-auto rounded-lg text-gray-300 shadow-lg">
+      <h3 className="text-white text-lg sm:text-xl font-semibold mb-4 text-left md:text-left">
+        Subscribe
+      </h3>
+      <div className="flex flex-col sm:flex-row gap-3">
         <input
           type="email"
           placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="px-3 py-2 rounded bg-white border border-gray-600 text-black w-full sm:flex-1 focus:outline-none focus:ring-2 focus:ring-gray-400"
+          className="px-4 py-3 rounded bg-white border border-gray-600 text-black w-full sm:flex-1 focus:outline-none focus:ring-2 focus:ring-gray-400 transition"
         />
         <button
           onClick={handleSubscribe}
-          className="bg-[#e95115] text-white px-4 py-2 rounded hover:bg-orange-500 transition"
+          className="bg-[#e95115] text-white px-6 py-3 rounded hover:bg-orange-500 transition text-center sm:text-sm"
         >
           Subscribe
         </button>
