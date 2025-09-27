@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { X, Play } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -15,17 +15,17 @@ import img8 from "../../assets/park-12.jpeg";
 import img9 from "../../assets/trees-2.jpeg";
 import img10 from "../../assets/road-1.png";
 
-
 import vid1 from "../../assets/video-1.mp4"
 import vid2 from "/Video-4.mp4"
 
 export default function HomeActualImg() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedVideo, setSelectedVideo] = useState(null);
-  // const [showAllImages, setShowAllImages] = useState(false);
-  // const [showAllVideos, setShowAllVideos] = useState(false);
   const [imageGalleryModal, setImageGalleryModal] = useState(false);
   const [videoGalleryModal, setVideoGalleryModal] = useState(false);
+  
+  // Track user interaction for each video
+  const [videoInteractions, setVideoInteractions] = useState({});
 
   // 🔹 Static array of images
   const images = [
@@ -38,7 +38,6 @@ export default function HomeActualImg() {
     { id: 2, thumbnail: img2, videoUrl: vid2, title: "Site Tour 2" },
     { id: 3, thumbnail: img3, videoUrl: vid1, title: "Site Tour 3" },
     { id: 4, thumbnail: img4, videoUrl: vid2, title: "Site Tour 4" },
-    
   ];
 
   useEffect(() => {
@@ -47,6 +46,27 @@ export default function HomeActualImg() {
 
   const displayedImages = images.slice(0, 3);
   const displayedVideos = videos.slice(0, 3);
+
+  // Handle video play with proper timing logic
+  const handleVideoPlay = (videoElement, videoId) => {
+    if (!videoInteractions[videoId]) {
+      // First time user clicks - start from beginning
+      videoElement.currentTime = 0;
+      setVideoInteractions(prev => ({
+        ...prev,
+        [videoId]: true
+      }));
+    }
+    videoElement.play();
+  };
+
+  // Handle video loading - set initial time for autoplay
+  const handleVideoLoadedMetadata = (videoElement, videoId) => {
+    if (!videoInteractions[videoId]) {
+      // For autoplay preview, start from 12 seconds
+      videoElement.currentTime = 12;
+    }
+  };
 
   return (
     <section
@@ -70,7 +90,7 @@ export default function HomeActualImg() {
             <h3 className="absolute -top-2 left-0 bg-orange-500 text-white px-4 py-2 rounded-tr-lg rounded-bl-lg font-semibold text-lg z-10">
               Images
             </h3>
-            
+
             {/* Images Grid - 2 rows, 3 columns */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pt-8">
               {displayedImages.map((img, i) => (
@@ -117,7 +137,7 @@ export default function HomeActualImg() {
             <h3 className="absolute -top-2 left-0 bg-blue-500 text-white px-4 py-2 rounded-tr-lg rounded-bl-lg font-semibold text-lg z-10">
               Videos
             </h3>
-            
+
             {/* Videos Grid - 2 rows, 3 columns */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 pt-8">
               {displayedVideos.map((video, i) => (
@@ -131,16 +151,25 @@ export default function HomeActualImg() {
                   {/* Actual Video */}
                   <video
                     src={video.videoUrl}
+                    autoPlay
                     className="w-full h-full object-cover"
                     muted
                     loop
+                    onLoadedMetadata={(e) => handleVideoLoadedMetadata(e.target, video.id)}
                     onMouseEnter={(e) => e.target.play()}
                     onMouseLeave={(e) => e.target.pause()}
                   >
                     Your browser does not support the video tag.
                   </video>
                   {/* Play Button Overlay */}
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <div 
+                    className="absolute inset-0 bg-black/30 flex items-center justify-center"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const videoElement = e.currentTarget.previousElementSibling;
+                      handleVideoPlay(videoElement, video.id);
+                    }}
+                  >
                     <div className="bg-white/90 hover:bg-white rounded-full p-3 group-hover:scale-110 transition duration-300">
                       <Play className="w-8 h-8 text-blue-600 ml-1" />
                     </div>
@@ -186,7 +215,7 @@ export default function HomeActualImg() {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto p-4">
               {images.map((img, i) => (
                 <div
@@ -233,7 +262,7 @@ export default function HomeActualImg() {
                 <X className="w-6 h-6" />
               </button>
             </div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto p-4">
               {videos.map((video, i) => (
                 <div
@@ -249,12 +278,20 @@ export default function HomeActualImg() {
                     className="w-full h-full object-cover"
                     muted
                     loop
+                    onLoadedMetadata={(e) => handleVideoLoadedMetadata(e.target, `gallery-${video.id}`)}
                     onMouseEnter={(e) => e.target.play()}
                     onMouseLeave={(e) => e.target.pause()}
                   >
                     Your browser does not support the video tag.
                   </video>
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                  <div 
+                    className="absolute inset-0 bg-black/30 flex items-center justify-center"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const videoElement = e.currentTarget.previousElementSibling;
+                      handleVideoPlay(videoElement, `gallery-${video.id}`);
+                    }}
+                  >
                     <div className="bg-white/90 hover:bg-white rounded-full p-3 group-hover:scale-110 transition duration-300">
                       <Play className="w-8 h-8 text-blue-600 ml-1" />
                     </div>
@@ -268,6 +305,8 @@ export default function HomeActualImg() {
           </div>
         </div>
       )}
+
+      {/* Image Modal */}
       {selectedImage && (
         <div
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4"
@@ -318,10 +357,6 @@ export default function HomeActualImg() {
             >
               <X className="w-6 h-6" />
             </button>
-            {/* Video Title */}
-            <div className="absolute bottom-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg">
-              <p className="font-semibold">{selectedVideo.title}</p>
-            </div>
           </div>
         </div>
       )}

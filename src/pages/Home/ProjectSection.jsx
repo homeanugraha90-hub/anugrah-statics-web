@@ -86,56 +86,61 @@ export default function ProjectSection() {
           {featureData.map((item, i) => (
             <SwiperSlide key={i}>
               {({ isActive }) => (
-                <div 
-                  className={`bg-white flex flex-col justify-between items-center text-center p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 border-b-4 border-orange-400 transform ${
-                    isActive 
-                      ? 'scale-110 h-80 sm:h-96 shadow-2xl bg-gradient-to-br from-white to-orange-50 border-orange-500' 
-                      : 'scale-95 h-72 sm:h-80 opacity-80'
-                  }`}
-                >
-                  {/* Icon with splash background */}
-                  <div className={`flex items-center justify-center mb-4 relative transition-all duration-500 ${
-                    isActive ? 'w-24 h-24' : 'w-20 h-20'
-                  }`}>
-                    <div className={`absolute inset-0 bg-orange-100 rounded-full opacity-70 blur-md transition-all duration-500 ${
-                      isActive ? 'bg-orange-200 scale-110' : ''
-                    }`}></div>
-                    <div className={`relative text-orange-500 transition-all duration-500 ${
-                      isActive ? 'text-5xl text-orange-600' : 'text-4xl'
-                    }`}>
-                      {item.icon}
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className={`font-bold text-gray-900 mb-2 transition-all duration-500 ${
-                    isActive 
-                      ? 'text-xl md:text-2xl text-orange-700' 
-                      : 'text-lg md:text-xl'
-                  }`}>
-                    {item.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className={`text-gray-500 mb-4 flex-grow transition-all duration-500 ${
-                    isActive 
-                      ? 'text-base md:text-lg text-gray-600' 
-                      : 'text-sm md:text-base'
-                  }`}>
-                    {item.text}
-                  </p>
-
-                  {/* CTA */}
-                  <a
-                    href="#"
-                    className={`font-medium hover:underline mt-auto transition-all duration-500 ${
+                <div className="relative h-80 sm:h-96"> {/* Fixed container height */}
+                  <div 
+                    className={`absolute inset-0 bg-white flex flex-col justify-between items-center text-center p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-500 border-b-4 border-orange-400 ${
                       isActive 
-                        ? 'text-orange-600 text-lg font-semibold transform hover:scale-105' 
-                        : 'text-orange-500'
+                        ? 'transform scale-105 shadow-2xl bg-gradient-to-br from-white to-orange-50 border-orange-500 z-10' 
+                        : 'transform scale-95 opacity-80 z-0'
                     }`}
+                    style={{
+                      transformOrigin: 'center center'
+                    }}
                   >
-                    Find A Home →
-                  </a>
+                    {/* Icon with splash background */}
+                    <div className={`flex items-center justify-center mb-4 relative transition-all duration-500 ${
+                      isActive ? 'w-24 h-24' : 'w-20 h-20'
+                    }`}>
+                      <div className={`absolute inset-0 bg-orange-100 rounded-full opacity-70 blur-md transition-all duration-500 ${
+                        isActive ? 'bg-orange-200 scale-110' : ''
+                      }`}></div>
+                      <div className={`relative text-orange-500 transition-all duration-500 ${
+                        isActive ? 'text-5xl text-orange-600' : 'text-4xl'
+                      }`}>
+                        {item.icon}
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className={`font-bold text-gray-900 mb-2 transition-all duration-500 ${
+                      isActive 
+                        ? 'text-xl md:text-2xl text-orange-700' 
+                        : 'text-lg md:text-xl'
+                    }`}>
+                      {item.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className={`text-gray-500 mb-4 flex-grow transition-all duration-500 ${
+                      isActive 
+                        ? 'text-base md:text-lg text-gray-600' 
+                        : 'text-sm md:text-base'
+                    }`}>
+                      {item.text}
+                    </p>
+
+                    {/* CTA */}
+                    <a
+                      href="#"
+                      className={`font-medium hover:underline mt-auto transition-all duration-500 ${
+                        isActive 
+                          ? 'text-orange-600 text-lg font-semibold transform hover:scale-105' 
+                          : 'text-orange-500'
+                      }`}
+                    >
+                      Find A Home →
+                    </a>
+                  </div>
                 </div>
               )}
             </SwiperSlide>

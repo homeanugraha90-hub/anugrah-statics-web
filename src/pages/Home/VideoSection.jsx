@@ -7,7 +7,7 @@ export default function VideoSection({ videoSection }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
       {/* 🔹 Background Video (only inside this section) */}
       <video
         src={vid}

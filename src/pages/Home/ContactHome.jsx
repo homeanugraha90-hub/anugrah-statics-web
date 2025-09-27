@@ -12,7 +12,7 @@ import {
 
 export default function ContactSection() {
   return (
-    <div className="max-w-7xl px-6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center pb-12">
+    <div className="max-w-7xl px-6 mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center py-12">
       {/* Contact Form */}
       <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 border border-gray-200">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">Send Us a Message</h2>

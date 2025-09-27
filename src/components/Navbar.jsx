@@ -4,9 +4,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [show, setShow] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isHidden, setIsHidden] = useState(false);
   const [atTop, setAtTop] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -36,14 +36,42 @@ const Navbar = () => {
   const activeLinks = navConfig[location.pathname] || ["Home", "About", "Contact Us"];
 
   useEffect(() => {
-    const controlNavbar = () => {
-      setAtTop(window.scrollY <= 0);
-      setShow(window.scrollY <= lastScrollY);
-      setLastScrollY(window.scrollY);
+    let ticking = false;
+    let timeoutId;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          
+          setAtTop(currentScrollY <= 10);
+          
+          // Clear previous timeout
+          if (timeoutId) clearTimeout(timeoutId);
+          
+          // Only hide navbar if scrolling down significantly
+          if (currentScrollY > lastScrollY + 10 && currentScrollY > 100) {
+            setIsHidden(true);
+          } 
+          // Show navbar if scrolling up or near top
+          else if (currentScrollY < lastScrollY - 5 || currentScrollY < 100) {
+            setIsHidden(false);
+          }
+          
+          setLastScrollY(currentScrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", controlNavbar);
-    return () => window.removeEventListener("scroll", controlNavbar);
+    // Use passive scroll listener for better performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, [lastScrollY]);
 
   useEffect(() => {
@@ -52,10 +80,11 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        show ? "translate-y-0" : "-translate-y-full"
+      className={`fixed top-0 left-0 w-full z-50 transition-transform duration-300 ${
+        isHidden ? "-translate-y-full" : "translate-y-0"
       } ${atTop ? "bg-white" : "bg-white shadow-md"}`}
     >
+      {/* Rest of your navbar code remains the same */}
       <div className="max-w-[1600px] mx-auto flex items-center justify-between px-4 sm:px-8 md:px-10 lg:px-16 xl:px-24 py-3">
         {/* Logo */}
         <div
@@ -69,7 +98,7 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Desktop Nav (show only from lg) */}
+        {/* Desktop Nav */}
         <nav className="hidden lg:flex items-center gap-6 xl:gap-10">
           {activeLinks.map((name, index) => {
             const link = allLinks[name];
@@ -91,7 +120,6 @@ const Navbar = () => {
             );
           })}
 
-          {/* Site Visit Button */}
           <button
             onClick={() => navigate("/site-visit")}
             className="ml-2 lg:ml-4 bg-orange-500 text-white font-medium 
@@ -101,7 +129,7 @@ const Navbar = () => {
           </button>
         </nav>
 
-        {/* Mobile Toggle (show until lg) */}
+        {/* Mobile Toggle */}
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden text-gray-800"
